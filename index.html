@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cold Email Infrastructure & Outreach Setup | Cold Email OS</title>
+  <meta name="description" content="Professional cold email system setup in 48 hours. Get 40-60% open rates with our proven infrastructure. Starting at $297.">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  
+  <!-- Additional Security & SEO -->
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Cold Email Infrastructure & Outreach Setup">
+  <meta property="og:description" content="Professional cold email system setup in 48 hours. Get 40-60% open rates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://coldemalos.com">
+  <link rel="canonical" href="https://coldemalos.com">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #0ea5e9;
+      --secondary: #22c55e;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f8fafc;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+    
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Navbar - Adelevation Style */
+    .navbar-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: 90%;
+      max-width: 1100px;
+    }
+    
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    header:hover {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--dark);
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .btn-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-header:hover::before {
+      left: 100%;
+    }
+    
+    .btn-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--dark);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      padding: 8rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Animated Background Elements */
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.1;
+      animation: float 20s infinite ease-in-out;
+    }
+    
+    .hero::before {
+      width: 400px;
+      height: 400px;
+      background: var(--primary);
+      top: -200px;
+      right: -100px;
+    }
+    
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      background: var(--secondary);
+      bottom: -150px;
+      left: -50px;
+      animation-delay: -10s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 30px) scale(1.02); }
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Badge Animation */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224, 242, 254, 0.8);
+      color: #0369a1;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+      animation: slideDown 0.6s ease-out;
+    }
+    
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Animated Headline */
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      animation: gradientShift 3s ease infinite;
+      background-size: 200% auto;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    /* Typewriter Effect for Subtitle */
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+    
+    .hero-qualifier {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+      font-style: italic;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+    
+    /* Evidence Strip Animation */
+    .evidence-strip {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.8s both;
+    }
+    
+    .evidence-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      font-size: 0.85rem;
+      color: var(--gray);
+      transition: all 0.3s ease;
+    }
+    
+    .evidence-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .evidence-icon {
+      color: var(--secondary);
+      animation: checkmark 0.5s ease-out;
+      font-weight: bold;
+    }
+    
+    @keyframes checkmark {
+      from {
+        transform: scale(0) rotate(-180deg);
+      }
+      to {
+        transform: scale(1) rotate(0);
+      }
+    }
+    
+    /* Trust Badges Animation */
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 1s both;
+    }
+    
+    .trust-badge {
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .trust-badge::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+    }
+    
+    .trust-badge:hover::before {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .trust-badge:hover {
+      transform: scale(1.05);
+    }
+    
+    .trust-badge.green {
+      background: #dcfce7;
+      color: #166534;
+    }
+    
+    .trust-badge.blue {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .trust-badge.purple {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+    
+    /* CTA Buttons Animation */
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 1.2s both;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn-primary:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--dark);
+      padding: 1rem 2rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-secondary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transform: translateX(5px);
+      background: white;
+      color: var(--primary);
+    }
+    
+    /* Stats Animation */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      color: var(--gray);
+      font-size: 0.9rem;
+      animation: fadeInUp 0.8s ease-out 1.4s both;
+    }
+    
+    .stats span {
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .stats span::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(-50%) scale(1); }
+      50% { transform: translateY(-50%) scale(1.2); }
+    }
+    
+    /* Problem Section */
+    .problem-section {
+      background: var(--light-gray);
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+      color: var(--dark);
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .section-title.active {
+      opacity: 1;
+    }
+    
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+    
+    .problem-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .problem-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .problem-icon {
+      color: #ef4444;
+      font-size: 1.3rem;
+      animation: shake 2s ease-in-out infinite;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      10% { transform: rotate(-5deg); }
+      20% { transform: rotate(5deg); }
+      30% { transform: rotate(0deg); }
+    }
+    
+    .problem-text h3 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--dark);
+      font-size: 1rem;
+    }
+    
+    .problem-text p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    
+    .warning-box {
+      background: #fef2f2;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.5s ease;
+    }
+    
+    .warning-box.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .warning-box h3 {
+      color: #991b1b;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    
+    .warning-box p {
+      color: #b91c1c;
+    }
+    
+    /* Services Section */
+    .services-section {
+      padding: 5rem 0;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .service-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 16px;
+      padding: 1.25rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-card.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+    
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      transform: rotate(5deg) scale(1.1);
+    }
+    
+    .icon-blue { background: #e0f2fe; }
+    .icon-green { background: #dcfce7; }
+    .icon-purple { background: #f3e8ff; }
+    .icon-orange { background: #fed7aa; }
+    
+    .service-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .service-card p {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    
+    .service-features {
+      list-style: none;
+    }
+    
+    .service-features li {
+      font-size: 0.75rem;
+      color: #475569;
+      padding: 0.2rem 0;
+      line-height: 1.3;
+    }
+    
+    .service-link {
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    
+    /* Process Section */
+    .process-section {
+      background: var(--light-gray);
+      padding: 5rem 0;
+    }
+    
+    .process-steps {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.6s ease;
+    }
+    
+    .step.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+      position: relative;
+    }
+    
+    .step-number::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--primary), transparent);
+    }
+    
+    .step:last-child .step-number::after {
+      display: none;
+    }
+    
+    .step-number.green {
+      background: var(--secondary);
+    }
+    
+    .step-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .step-content span {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: normal;
+    }
+    
+    .step-content p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    
+    /* Pricing Section */
+    .pricing-section {
+      padding: 5rem 0;
+    }
+    
+    .trust-section {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      padding: 1.5rem;
+      background: #f0fdf4;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.5s ease;
+    }
+    
+    .trust-section.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .trust-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #166534;
+    }
+    
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #166534;
+      font-size: 0.9rem;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid rgba(226, 232, 240, 0.8);
+      border-radius: 20px;
+      padding: 1.8rem;
+      position: relative;
+      transition: all 0.3s;
+      opacity: 0;
+      transform: scale(0.9);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .pricing-card.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .pricing-card.featured {
+      border-color: var(--primary);
+      transform: scale(1.02);
+    }
+    
+    .pricing-card.featured:hover {
+      transform: scale(1.02) translateY(-5px);
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .pricing-header h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .pricing-header p {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    
+    .price {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--dark);
+    }
+    
+    .featured .price {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .price-period {
+      font-size: 0.9rem;
+      color: #64748b;
+      font-weight: normal;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: #475569;
+      line-height: 1.3;
+    }
+    
+    .check {
+      color: var(--secondary);
+      flex-shrink: 0;
+      font-weight: bold;
+    }
+    
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 0.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .pricing-card .pricing-cta {
+      border: 2px solid #e2e8f0;
+      color: var(--dark);
+    }
+    
+    .pricing-card .pricing-cta:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .featured .pricing-cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+    }
+    
+    .featured .pricing-cta:hover {
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+    }
+    
+    .pricing-footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+    }
+    
+    .pricing-microcopy {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      margin-top: 0.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      background: var(--light-gray);
+      padding: 5rem 0;
+    }
+    
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-item {
+      background: white;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
+    }
+    
+    .stat-item.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .stat-item strong {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px) rotateX(-10deg);
+      transition: all 0.6s ease;
+    }
+    
+    .testimonial-card.active {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stars {
+      color: #fbbf24;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background: #e2e8f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+    
+    .author-info h4 {
+      font-size: 0.9rem;
+      color: var(--dark);
+      margin-bottom: 0.1rem;
+    }
+    
+    .author-info p {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+    
+    .author-info a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    /* Team Section */
+    .team-section {
+      padding: 5rem 0;
+      background: white;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .team-member {
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.8) rotateY(180deg);
+      transition: all 0.8s ease;
+    }
+    
+    .team-member.active {
+      opacity: 1;
+      transform: scale(1) rotateY(0);
+    }
+    
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      transition: transform 0.5s ease;
+    }
+    
+    .team-member:hover .team-avatar {
+      transform: rotate(360deg) scale(1.1);
+    }
+    
+    .team-member h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .team-member h3 a {
+      transition: transform 0.3s ease;
+    }
+    
+    .team-member h3 a:hover {
+      transform: scale(1.2);
+    }
+    
+    .team-member .role {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .team-member .credentials {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      padding: 5rem 0;
+      background: var(--light-gray);
+    }
+    
+    .faq-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.5s ease;
+    }
+    
+    .faq-item.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--dark);
+      transition: background 0.3s;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .faq-question:hover {
+      background: #f8fafc;
+    }
+    
+    .faq-arrow {
+      transition: transform 0.3s;
+      color: #64748b;
+    }
+    
+    details[open] .faq-arrow {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      padding: 0 1.2rem 1.2rem;
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Guarantee Section */
+    .guarantee-section {
+      background: white;
+      padding: 5rem 0;
+    }
+    
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+    
+    .guarantee-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
+    }
+    
+    .guarantee-card.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .guarantee-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.1);
+      border-color: var(--secondary);
+    }
+    
+    .guarantee-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: checkmark 0.5s ease-out;
+    }
+    
+    .guarantee-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .guarantee-card p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    
+    .disclaimer {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      padding: 1rem;
+      background: #fef3c7;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #92400e;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .disclaimer.active {
+      opacity: 1;
+    }
+    
+    /* Final CTA Section */
+    .final-cta-section {
+      padding: 5rem 0;
+      background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    }
+    
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .choice-card {
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.5s ease;
+    }
+    
+    .choice-card.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .choice-bad {
+      background: #fef2f2;
+    }
+    
+    .choice-good {
+      background: #dcfce7;
+    }
+    
+    .choice-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .choice-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .choice-card p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    
+    .math-box {
+      background: white;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
+    }
+    
+    .math-box.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .math-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .math-item {
+      text-align: center;
+    }
+    
+    .math-label {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+    }
+    
+    .math-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    .math-value.gradient {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .math-value.red {
+      color: #ef4444;
+    }
+    
+    .math-value.green {
+      color: var(--secondary);
+    }
+    
+    .math-sublabel {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .footer-section a {
+      display: block;
+      color: #64748b;
+      text-decoration: none;
+      padding: 0.25rem 0;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-contact {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .footer-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .footer-legal a {
+      color: #64748b;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-legal a:hover {
+      color: #475569;
+    }
+    
+    /* Email obfuscation styles */
+    .email-obf {
+      color: #64748b;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+    
+    .email-obf:hover {
+      color: var(--primary);
+    }
+    
+    /* Footer CTA link style */
+    .footer-contact a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 1199px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+      
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-wrapper {
+        width: 95%;
+        top: 10px;
+      }
+      
+      header {
+        padding: 0.6rem 1rem;
+      }
+      
+      nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .services-grid,
+      .problems-grid,
+      .pricing-grid,
+      .testimonials-grid,
+      .guarantee-grid,
+      .choice-grid,
+      .math-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar with Adelevation-style blur effect -->
+  <div class="navbar-wrapper">
+    <header>
+      <div class="header-content">
+        <a href="/" class="logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l3.5 6.5L22 10l-6.5 3.5L12 20l-3.5-6.5L2 10l6.5-1.5L12 2z" fill="#0ea5e9"/>
+          </svg>
+          Cold Email OS
+        </a>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Results</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-header">Get Started</a>
+        </nav>
+        <button class="mobile-menu-toggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+  
+  <!-- Hero Section with Animations -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="pulse"></span>
+          <span>Only 3 spots left for December</span>
+        </div>
+        
+        <h1>
+          Turn Cold Emails Into Your<br/>
+          <span class="gradient-text">#1 Revenue Channel</span><br/>
+          in 48 Hours*
+        </h1>
+        
+        <p class="hero-subtitle">
+          Stop losing opportunities. We'll build your complete cold email infrastructure that lands in inboxes, gets responses, and books meetings on autopilot.
+        </p>
+        
+        <p class="hero-qualifier">
+          *Infrastructure live in 48 hours. Full results typically ramp over 2-4 weeks based on list quality and market.
+        </p>
+        
+        <!-- Evidence Strip -->
+        <div class="evidence-strip">
+          <div class="evidence-item">
+            <span class="evidence-icon">→</span>
+            <span>DNS Authentication Verified</span>
+          </div>
+          <div class="evidence-item">
+            <span class="evidence-icon">→</span>
+            <span>Inbox Placement Tested</span>
+          </div>
+          <div class="evidence-item">
+            <span class="evidence-icon">→</span>
+            <span>500+ Successful Setups</span>
+          </div>
+        </div>
+        
+        <div class="trust-badges">
+          <span class="trust-badge green">→ Target: High inbox rates**</span>
+          <span class="trust-badge blue">→ 40-60% typical open rates</span>
+          <span class="trust-badge purple">→ Done-for-you in 48 hours</span>
+        </div>
+        
+        <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 1rem;">
+          **Results vary based on list quality, sending practices, and market conditions. See case studies for details.
+        </p>
+        
+        <div class="cta-buttons">
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-primary">Start Generating Leads Today</a>
+          <a href="#testimonials" class="btn-secondary">See Real Client Results →</a>
+        </div>
+        
+        <div class="stats">
+          <span>⭐ 500+ Systems Built</span>
+          <span>🏆 Instantly & Smartlead Certified</span>
+          <span>📧 2M+ Emails Delivered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Problem Section -->
+  <section class="problem-section">
+    <div class="container">
+      <h2 class="section-title">Your Competitors Are Eating Your Lunch<br/>While You're Still Stuck With...</h2>
+      
+      <div class="problems-grid">
+        <div class="problem-item">
+          <span class="problem-icon">❌</span>
+          <div class="problem-text">
+            <h3>Emails landing in spam</h3>
+            <p>Killing your domain reputation</p>
+          </div>
+        </div>
+        
+        <div class="problem-item">
+          <span class="problem-icon">❌</span>
+          <div class="problem-text">
+            <h3>Manual outreach</h3>
+            <p>5 hours/day with zero results</p>
+          </div>
+        </div>
+        
+        <div class="problem-item">
+          <span class="problem-icon">❌</span>
+          <div class="problem-text">
+            <h3>"Spray and pray" campaigns</h3>
+            <p>2% open rates burning money</p>
+          </div>
+        </div>
+        
+        <div class="problem-item">
+          <span class="problem-icon">❌</span>
+          <div class="problem-text">
+            <h3>Expensive agencies</h3>
+            <p>$5,000/month for mediocre results</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="warning-box">
+        <h3>Every day without a proper cold email system costs you 10-50 qualified leads.</h3>
+        <p>That's potential revenue lost every month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <h2 class="section-title">Your Complete "Inbox Domination" System</h2>
+      <p style="text-align: center; color: #64748b; margin-bottom: 3rem;">Installed & Ready in 48 Hours</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon icon-blue">🔧</div>
+          <h3>Technical Infrastructure</h3>
+          <p>The invisible foundation that makes everything work</p>
+          <ul class="service-features">
+            <li>• Multi-domain email infrastructure</li>
+            <li>• DNS authentication (SPF, DKIM, DMARC)</li>
+            <li>• Smart IP rotation & warming</li>
+            <li>• Platform configuration</li>
+          </ul>
+          <span class="service-link">Learn more →</span>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon icon-green">📧</div>
+          <h3>Campaign Architecture</h3>
+          <p>Your automated sales team that never sleeps</p>
+          <ul class="service-features">
+            <li>• Custom follow-up sequences</li>
+            <li>• AI-powered personalization</li>
+            <li>• Time-zone optimized sending</li>
+            <li>• Response workflows</li>
+          </ul>
+          <span class="service-link">Learn more →</span>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon icon-purple">📊</div>
+          <h3>Lead Generation Engine</h3>
+          <p>Never run out of prospects again</p>
+          <ul class="service-features">
+            <li>• B2B lead database access</li>
+            <li>• Custom ICP targeting</li>
+            <li>• Lead verification & enrichment</li>
+            <li>• CRM integration</li>
+          </ul>
+          <span class="service-link">Learn more →</span>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon icon-orange">✍️</div>
+          <h3>Conversion Copy Framework</h3>
+          <p>Words that turn strangers into buyers</p>
+          <ul class="service-features">
+            <li>• Proven email templates</li>
+            <li>• High-converting subject lines</li>
+            <li>• Personalization variables</li>
+            <li>• A/B testing frameworks</li>
+          </ul>
+          <span class="service-link">Learn more →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="process-section" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">Your Journey to Inbox Domination</h2>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Strategy Call <span>(Today)</span></h3>
+            <p>15-minute call to understand your ICP, offer, and goals. We'll map out your success plan.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Infrastructure Build <span>(24 Hours)</span></h3>
+            <p>Our tech team builds your complete email ecosystem. Every technical detail handled.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Campaign Launch <span>(48 Hours)</span></h3>
+            <p>Your campaigns go live. Leads start flowing. You focus on closing deals.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number green">4</div>
+          <div class="step-content">
+            <h3>Scale to the Moon <span>(Week 2+)</span></h3>
+            <p>Fine-tune, optimize, scale. Add more accounts, more campaigns, more leads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Choose Your Domination Level</h2>
+      <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Simple pricing. Incredible results.</p>
+      
+      <!-- Trust Section -->
+      <div class="trust-section">
+        <h3>Why Teams Trust Us</h3>
+        <div class="trust-items">
+          <div class="trust-item">
+            <span>→</span>
+            <span>30-Day Money Back</span>
+          </div>
+          <div class="trust-item">
+            <span>→</span>
+            <span>2-Hour Response SLA</span>
+          </div>
+          <div class="trust-item">
+            <span>→</span>
+            <span>White-Glove Support</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pricing-grid">
+        <!-- Foundation -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>🥉 Foundation</h3>
+            <p>Perfect for testing the waters</p>
+            <div class="price">$297<span class="price-period">/setup</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li><span class="check">→</span> 5 email accounts configuration</li>
+            <li><span class="check">→</span> Basic platform setup</li>
+            <li><span class="check">→</span> Email warming activation</li>
+            <li><span class="check">→</span> 1 campaign template</li>
+            <li><span class="check">→</span> Basic authentication</li>
+            <li><span class="check">→</span> 3-day email support</li>
+          </ul>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
+          <p class="pricing-footer">Live in 48 hours</p>
+          <p class="pricing-microcopy">No credit card required • Setup in 48h</p>
+        </div>
+        
+        <!-- Accelerator -->
+        <div class="pricing-card featured">
+          <span class="popular-badge">MOST POPULAR</span>
+          <div class="pricing-header">
+            <h3>🥇 Accelerator</h3>
+            <p>For serious businesses ready to scale</p>
+            <div class="price">$597<span class="price-period">/setup</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li><span class="check">→</span> Everything in Foundation PLUS:</li>
+            <li><span class="check">→</span> 15 email accounts configuration</li>
+            <li><span class="check">→</span> Advanced warming strategy</li>
+            <li><span class="check">→</span> 3 complete campaign sequences</li>
+            <li><span class="check">→</span> Custom email templates (10)</li>
+            <li><span class="check">→</span> Full DMARC implementation</li>
+            <li><span class="check">→</span> Lead list cleaning (5,000)</li>
+            <li><span class="check">→</span> 30-day optimization support</li>
+            <li><span class="check">→</span> Zoom training session</li>
+          </ul>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" class="pricing-cta">Get Started</a>
+          <p class="pricing-footer">Typical: 10+ leads in first week</p>
+          <p class="pricing-microcopy">No credit card required • Setup in 48h</p>
+        </div>
+        
+        <!-- Enterprise -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>🚀 Enterprise</h3>
+            <p>Dominate your entire market</p>
+            <div class="price">$1,497<span class="price-period">/setup</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li><span class="check">→</span> Unlimited email accounts</li>
+            <li><span class="check">→</span> Multiple domain setup</li>
+            <li><span class="check">→</span> 10 campaign sequences</li>
+            <li><span class="check">→</span> AI personalization setup</li>
+            <li><span class="check">→</span> Lead database integration</li>
+            <li><span class="check">→</span> CRM synchronization</li>
+            <li><span class="check">→</span> Weekly optimization calls</li>
+            <li><span class="check">→</span> 90-day partnership support</li>
+            <li><span class="check">→</span> Team training included</li>
+          </ul>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" class="pricing-cta">Get Started</a>
+          <p class="pricing-footer">Target: 50+ leads/week</p>
+          <p class="pricing-microcopy">No credit card required • Setup in 48h</p>
+        </div>
+      </div>
+      
+      <!-- Pricing Disclaimer -->
+      <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 2rem;">
+        Domain purchases, email hosting servers, and tool subscriptions (Instantly/Smartlead) are NOT included in any package. These are separate costs that you'll need to budget for. We'll guide you on the best options during setup.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">We Don't Just Talk. We Deliver Results.</h2>
+      
+      <div class="stats-bar">
+        <span class="stat-item"><strong>2.5M+</strong> Emails Delivered</span>
+        <span class="stat-item"><strong>500+</strong> Systems Built</span>
+        <span class="stat-item"><strong>97%</strong> Avg Inbox Rate</span>
+        <span class="stat-item"><strong>$50M+</strong> Revenue Generated</span>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>From 0 to $280K in 3 months</h3>
+          <p class="testimonial-text">"They built our entire cold email system from scratch. We went from zero online presence to booking 15 demos per week. Closed $280K in new business in 90 days."</p>
+          <div class="author">
+            <div class="avatar">MC</div>
+            <div class="author-info">
+              <h4>Marcus Chen</h4>
+              <p>SaaS Founder • <a href="#case-studies">View Case Study</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>97% inbox rate achieved</h3>
+          <p class="testimonial-text">"I've worked with 5 different agencies. These guys are different. My emails actually land in the inbox. 97% delivery rate, 52% open rate, and replies that convert."</p>
+          <div class="author">
+            <div class="avatar">SW</div>
+            <div class="author-info">
+              <h4>Sarah Williams</h4>
+              <p>B2B Agency Owner • <a href="#case-studies">View Case Study</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Saved my domain from blacklist</h3>
+          <p class="testimonial-text">"My domain was blacklisted. Zero emails delivering. They fixed everything, built new infrastructure, and now I'm booking 20+ calls per week."</p>
+          <div class="author">
+            <div class="avatar">DP</div>
+            <div class="author-info">
+              <h4>David Park</h4>
+              <p>Sales Director • <a href="#case-studies">View Case Study</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Your Cold Email Experts</h2>
+      <p style="text-align: center; color: #64748b; margin-bottom: 3rem;">Certified professionals with 10+ years combined experience</p>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">ZW</div>
+          <h3>
+            Zeeshan Waheed
+            <a href="https://www.linkedin.com/in/izeeshanwaheed/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-left: 8px; vertical-align: middle;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#0077B5">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </h3>
+          <p class="role">Founder & Lead Strategist</p>
+          <p class="credentials">
+            • Instantly Certified Partner<br>
+            • 500+ systems deployed<br>
+            • Former Sales Director at imisofts
+          </p>
+        </div>
+        
+        <div class="team-member">
+          <div class="team-avatar">AA</div>
+          <h3>Ali Anayat</h3>
+          <p class="role">Technical Infrastructure Lead</p>
+          <p class="credentials">
+            • Smartlead & Instantly Expert<br>
+            • DNS & Deliverability Specialist<br>
+            • 10+ years email marketing
+          </p>
+        </div>
+        
+        <div class="team-member">
+          <div class="team-avatar">RA</div>
+          <h3>Rehan Awan</h3>
+          <p class="role">Campaign Optimization Expert</p>
+          <p class="credentials">
+            • Conversion Copywriter<br>
+            • A/B Testing Specialist<br>
+            • 300+ campaigns optimized
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Everything You're Wondering</h2>
+      
+      <div class="faq-container">
+        <details class="faq-item">
+          <summary class="faq-question">
+            What tools do you use for cold email automation?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            We specialize in setting up and managing campaigns using Instantly and Smartlead - the industry's leading cold email platforms. We handle the complete technical setup, configuration, and optimization of these tools for your business.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            Do I need to purchase the tools separately?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            Yes, you'll need your own subscriptions to Instantly or Smartlead (starting at $37-97/month), plus domain purchases and email hosting. We guide you through the most cost-effective options and handle all the technical setup. Total monthly tool costs typically range from $200-500 depending on scale.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            How do you handle lead generation and data enrichment?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            We scrape and enrich data specifically for your ICP using premium tools and databases. This includes finding verified email addresses, LinkedIn profiles, company data, and other relevant information. We ensure all leads match your exact targeting criteria and are properly verified before campaigns.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            What's included in your setup service?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            We provide end-to-end setup: domain configuration, DNS records (SPF, DKIM, DMARC), email account creation, warming setup, campaign creation, email templates, tracking configuration, and initial optimization. Plus training on how to manage and scale your campaigns.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            Can you manage our campaigns ongoing?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            Yes, we offer monthly management packages where we handle campaign optimization, A/B testing, list management, and performance monitoring. This includes weekly reports and strategy calls to continuously improve results.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            How many leads can you generate for our ICP?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            Lead volume depends on your ICP specificity and market size. We typically deliver 1,000-10,000 verified leads per month. During onboarding, we'll analyze your market to provide accurate estimates for your specific niche.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            What if my domain gets blacklisted?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            We use separate domains for cold outreach to protect your main domain. If any sending domain has issues, we handle blacklist removal and reputation recovery. Our proper setup and warming protocols minimize this risk significantly.
+          </div>
+        </details>
+        
+        <details class="faq-item">
+          <summary class="faq-question">
+            How long before we see results?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            Setup is complete in 48 hours, but proper warming takes 2-4 weeks. You'll see initial responses within days, but optimal results come after the warming period. Most clients achieve their target metrics within 30-45 days of launch.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee Section -->
+  <section class="guarantee-section">
+    <div class="container">
+      <h2 class="section-title">Our "Performance Promise" Guarantee</h2>
+      
+      <div class="guarantee-grid">
+        <div class="guarantee-card">
+          <div class="guarantee-icon">🎯</div>
+          <h3>Inbox Placement</h3>
+          <p>Target 95%+ inbox rate with proper setup</p>
+        </div>
+        
+        <div class="guarantee-card">
+          <div class="guarantee-icon">⚡</div>
+          <h3>Speed Guarantee</h3>
+          <p>Complete setup in 48 hours or get $100 off</p>
+        </div>
+        
+        <div class="guarantee-card">
+          <div class="guarantee-icon">💬</div>
+          <h3>Support Promise</h3>
+          <p>2-hour response time during business hours</p>
+        </div>
+      </div>
+      
+      <div class="disclaimer">
+        <strong>Results Disclaimer:</strong> Results depend on list quality, offer-market fit, sending practices, and compliance. Typical results based on 500+ client average with proper implementation. Individual results may vary. See case studies for specific methodologies and timeframes.
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Two Choices: Keep Struggling or Start Dominating</h2>
+      
+      <div class="choice-grid">
+        <div class="choice-card choice-bad">
+          <div class="choice-icon">⚠️</div>
+          <h3>Option A</h3>
+          <p>Keep sending emails into the void, hoping something changes</p>
+        </div>
+        
+        <div class="choice-card choice-good">
+          <div class="choice-icon">🚀</div>
+          <h3>Option B</h3>
+          <p>Get a proven system that generates leads while you sleep</p>
+        </div>
+      </div>
+      
+      <div class="math-box">
+        <h3 style="text-align: center; margin-bottom: 1rem;">The Math Is Simple:</h3>
+        <div class="math-grid">
+          <div class="math-item">
+            <p class="math-label">Typical client ROI:</p>
+            <p class="math-value gradient">200-300%</p>
+            <p class="math-sublabel">in 90 days</p>
+          </div>
+          
+          <div class="math-item">
+            <p class="math-label">Cost of inaction:</p>
+            <p class="math-value red">High</p>
+            <p class="math-sublabel">lost opportunities</p>
+          </div>
+          
+          <div class="math-item">
+            <p class="math-label">Investment today:</p>
+            <p class="math-value green">$297</p>
+            <p class="math-sublabel">one-time setup</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center;">
+        <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+          🚀 Claim Your Spot - Start in 48 Hours
+        </a>
+        
+        <p style="margin-top: 1.5rem; color: #64748b; font-size: 0.9rem;">
+          <strong>P.S.</strong> - Your competitors are probably reading this page too. The question is: who's going to implement first?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <!-- Add a final CTA before footer content -->
+      <div style="text-align: center; padding: 2rem 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--dark);">Ready to Generate More Leads?</h3>
+        <p style="color: #64748b; margin-bottom: 1rem;">Get your cold email system set up in 48 hours</p>
+        <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.75rem 1.5rem;">
+          Book Your Free Strategy Call →
+        </a>
+      </div>
+      
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#services">Our Services</a>
+          <a href="#pricing">Pricing Plans</a>
+          <a href="#testimonials">Client Results</a>
+          <a href="#faq">FAQs</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Services</h3>
+          <a href="#services">Email Infrastructure</a>
+          <a href="#services">Campaign Setup</a>
+          <a href="#services">Lead Generation</a>
+          <a href="#services">Copywriting</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Get Started</h3>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer">Book Strategy Call</a>
+          <a href="#pricing">View Packages</a>
+          <a href="#testimonials">Success Stories</a>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer">Free Consultation</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <div class="footer-contact">
+            <p>Email: <span class="email-obf" data-user="troppus" data-domain="moc.solamedloc"></span></p>
+            <p>Book a Call: <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Schedule Here</a></p>
+            <p>Response Time: Within 2 hours</p>
+            <p>Available: Mon-Fri, 9am-6pm EST</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>
+          <div class="logo" style="margin-bottom: 0.5rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l3.5 6.5L22 10l-6.5 3.5L12 20l-3.5-6.5L2 10l6.5-1.5L12 2z" fill="#0ea5e9"/>
+            </svg>
+            Cold Email OS
+          </div>
+          <p style="color: #94a3b8; font-size: 0.9rem;">© 2025 Cold Email OS. All rights reserved.</p>
+        </div>
+        
+        <div class="footer-stats">
+          <span>→ 500+ successful setups</span>
+          <span>→ Certified Partners</span>
+          <span>→ 4.9/5 avg rating</span>
+          <span>→ 2hr response time</span>
+        </div>
+      </div>
+      
+      <div class="footer-legal">
+        <a href="#" onclick="alert('Privacy Policy coming soon. We never share your data with third parties.'); return false;">Privacy Policy</a>
+        <a href="#" onclick="alert('Terms of Service coming soon. 30-day money back guarantee on all packages.'); return false;">Terms of Service</a>
+        <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer">Book a Call →</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all elements with animations
+    document.querySelectorAll('.section-title, .problem-item, .service-card, .step, .pricing-card, .trust-section, .stat-item, .testimonial-card, .team-member, .faq-item, .guarantee-card, .choice-card, .math-box, .warning-box, .disclaimer').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Stagger animations for grid items
+    document.querySelectorAll('.problem-item').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    document.querySelectorAll('.service-card').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.15}s`;
+    });
+    
+    document.querySelectorAll('.step').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.2}s`;
+    });
+    
+    document.querySelectorAll('.pricing-card').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.2}s`;
+    });
+    
+    document.querySelectorAll('.testimonial-card').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.15}s`;
+    });
+    
+    document.querySelectorAll('.team-member').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.2}s`;
+    });
+    
+    document.querySelectorAll('.faq-item').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    document.querySelectorAll('.guarantee-card').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.15}s`;
+    });
+    
+    document.querySelectorAll('.stat-item').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Navbar scroll effect
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('header');
+      
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        navbar.style.transform = 'scale(0.98)';
+        navbar.style.opacity = '0.9';
+      } else {
+        navbar.style.transform = 'scale(1)';
+        navbar.style.opacity = '1';
+      }
+      
+      lastScrollY = window.scrollY;
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', function() {
+        // Add mobile menu functionality here if needed
+        console.log('Mobile menu clicked');
+      });
+    }
+    
+    // Email obfuscation
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailElements = document.querySelectorAll('.email-obf');
+      emailElements.forEach(function(element) {
+        const user = element.getAttribute('data-user');
+        const domain = element.getAttribute('data-domain');
+        if (user && domain) {
+          const email = user.split('').reverse().join('') + '@' + domain.split('').reverse().join('');
+          element.textContent = email;
+          element.style.cursor = 'pointer';
+          element.onclick = function() {
+            window.location.href = 'mailto:' + email;
+          };
+        }
+      });
+    });
+    
+    // Prevent iframe embedding (with error handling)
+    try {
+      if (window.self !== window.top) {
+        // Only attempt to break out of iframe if we have permission
+        // This prevents errors in development environments
+        if (document.referrer === '' || document.referrer.indexOf(window.location.hostname) === -1) {
+          console.log('Page is being embedded in an iframe');
+          // Optionally show a warning instead of breaking out
+          // top.location.replace(self.location.href);
+        }
+      }
+    } catch (e) {
+      // Silently fail if we don't have permission to check
+      console.log('Iframe detection blocked by security policy');
+    }
+  </script>
+</body>
+</html>
