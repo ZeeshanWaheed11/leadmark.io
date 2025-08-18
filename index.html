@@ -137,7 +137,9 @@
     }
     
     .btn-header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
       color: white;
       padding: 0.5rem 1.25rem;
       border-radius: 10px;
@@ -166,6 +168,7 @@
     .btn-header:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+      color: white !important;
     }
     
     /* Mobile Menu */
@@ -193,25 +196,26 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(60px);
-      opacity: 0.1;
-      animation: float 20s infinite ease-in-out;
+      opacity: 0.12;
+      animation: float 30s infinite ease-in-out;
     }
     
     .hero::before {
       width: 400px;
       height: 400px;
-      background: var(--primary);
+      background: linear-gradient(45deg, #0ea5e9, #0891b2);
       top: -200px;
       right: -100px;
+      animation: floatAndPulse 25s infinite ease-in-out;
     }
     
     .hero::after {
       width: 300px;
       height: 300px;
-      background: var(--secondary);
+      background: linear-gradient(135deg, #0891b2, #22c55e);
       bottom: -150px;
       left: -50px;
-      animation-delay: -10s;
+      animation: floatAndPulse 30s infinite ease-in-out reverse;
     }
     
     @keyframes float {
@@ -219,6 +223,25 @@
       25% { transform: translate(30px, -30px) scale(1.05); }
       50% { transform: translate(-20px, 20px) scale(0.95); }
       75% { transform: translate(20px, 30px) scale(1.02); }
+    }
+    
+    @keyframes floatAndPulse {
+      0%, 100% { 
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 0.12;
+      }
+      25% { 
+        transform: translate(30px, -20px) scale(1.1) rotate(45deg);
+        opacity: 0.15;
+      }
+      50% { 
+        transform: translate(-20px, 30px) scale(0.95) rotate(90deg);
+        opacity: 0.1;
+      }
+      75% { 
+        transform: translate(25px, 15px) scale(1.05) rotate(135deg);
+        opacity: 0.14;
+      }
     }
     
     .hero-content {
@@ -229,18 +252,92 @@
       z-index: 1;
     }
     
+    /* Additional animated color orbs */
+    .color-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    
+    .orb-1 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #0ea5e9, #0891b2);
+      top: 20%;
+      left: 10%;
+      animation: orbitOne 40s infinite linear;
+    }
+    
+    .orb-2 {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, #0891b2, #22c55e);
+      top: 60%;
+      right: 15%;
+      animation: orbitTwo 45s infinite linear reverse;
+    }
+    
+    .orb-3 {
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(90deg, #0ea5e9, #0891b2, #0ea5e9);
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: orbitThree 50s infinite ease-in-out;
+    }
+    
+    @keyframes orbitOne {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(60px, 30px) rotate(120deg); }
+      66% { transform: translate(-30px, 60px) rotate(240deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes orbitTwo {
+      0% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(-50px, -25px) scale(1.1); }
+      50% { transform: translate(40px, -50px) scale(0.9); }
+      75% { transform: translate(25px, 40px) scale(1.05); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    
+    @keyframes orbitThree {
+      0%, 100% { 
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 0.15;
+      }
+      50% { 
+        transform: translateX(-50%) translateY(-20px) scale(1.05);
+        opacity: 0.2;
+      }
+    }
+    
     /* Badge Animation */
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(224, 242, 254, 0.8);
+      background: linear-gradient(135deg, 
+        rgba(14, 165, 233, 0.1) 0%, 
+        rgba(8, 145, 178, 0.15) 50%,
+        rgba(34, 197, 94, 0.1) 70%,
+        rgba(14, 165, 233, 0.1) 100%);
+      background-size: 200% 200%;
+      animation: slideDown 0.6s ease-out, badgeGradient 12s ease infinite;
       color: #0369a1;
       padding: 0.4rem 1rem;
       border-radius: 30px;
       font-size: 0.85rem;
       margin-bottom: 2rem;
-      animation: slideDown 0.6s ease-out;
+    }
+    
+    @keyframes badgeGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     
     .pulse {
@@ -248,12 +345,12 @@
       height: 8px;
       background: #10b981;
       border-radius: 50%;
-      animation: pulse 2s infinite;
+      animation: pulse 3s infinite;
     }
     
     @keyframes pulse {
       0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.2); }
+      50% { opacity: 0.7; transform: scale(1.15); }
       100% { opacity: 1; transform: scale(1); }
     }
     
@@ -276,6 +373,17 @@
       margin-bottom: 1rem;
       color: var(--dark);
       animation: fadeInUp 0.8s ease-out 0.2s both;
+      position: relative;
+    }
+    
+    h1 .gradient-text {
+      filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.3));
+      animation: gradientShift 8s ease infinite, glowPulse 6s ease-in-out infinite;
+    }
+    
+    @keyframes glowPulse {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.3)); }
+      50% { filter: drop-shadow(0 0 25px rgba(8, 145, 178, 0.4)); }
     }
     
     @keyframes fadeInUp {
@@ -290,18 +398,33 @@
     }
     
     .gradient-text {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, 
+        #0ea5e9 0%, 
+        #0891b2 25%, 
+        #22c55e 50%, 
+        #0891b2 75%, 
+        #0ea5e9 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
-      animation: gradientShift 3s ease infinite;
-      background-size: 200% auto;
+      animation: gradientShift 8s ease infinite;
+      background-size: 300% auto;
     }
     
     @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      0% { 
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+      }
+      50% { 
+        background-position: 100% 50%;
+        filter: hue-rotate(10deg);
+      }
+      100% { 
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+      }
     }
     
     /* Typewriter Effect for Subtitle */
@@ -355,8 +478,12 @@
     }
     
     .evidence-icon {
-      color: var(--secondary);
-      animation: checkmark 0.5s ease-out;
+      background: linear-gradient(90deg, #0ea5e9, #0891b2, #22c55e, #0891b2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: checkmark 0.8s ease-out, buttonGradient 10s ease infinite;
       font-weight: bold;
     }
     
@@ -436,7 +563,13 @@
     }
     
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, 
+        #0ea5e9 0%, 
+        #0891b2 40%, 
+        #22c55e 60%, 
+        #0ea5e9 100%);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
       color: white;
       padding: 1rem 2rem;
       border-radius: 12px;
@@ -446,6 +579,18 @@
       display: inline-block;
       position: relative;
       overflow: hidden;
+    }
+    
+    @keyframes buttonGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes buttonGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     
     .btn-primary::after {
@@ -532,14 +677,15 @@
       transform: translateY(-50%);
       width: 12px;
       height: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #0ea5e9, #0891b2);
+      background-size: 200% 200%;
       border-radius: 50%;
-      animation: bounce 2s infinite;
+      animation: bounce 3s infinite, buttonGradient 10s ease infinite;
     }
     
     @keyframes bounce {
       0%, 100% { transform: translateY(-50%) scale(1); }
-      50% { transform: translateY(-50%) scale(1.2); }
+      50% { transform: translateY(-50%) scale(1.15); }
     }
     
     /* Problem Section */
@@ -599,13 +745,14 @@
     .problem-icon {
       color: #ef4444;
       font-size: 1.3rem;
-      animation: shake 2s ease-in-out infinite;
+      animation: shake 4s ease-in-out infinite;
+      font-weight: bold;
     }
     
     @keyframes shake {
       0%, 100% { transform: rotate(0deg); }
-      10% { transform: rotate(-5deg); }
-      20% { transform: rotate(5deg); }
+      10% { transform: rotate(-3deg); }
+      20% { transform: rotate(3deg); }
       30% { transform: rotate(0deg); }
     }
     
@@ -932,13 +1079,14 @@
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #0ea5e9, #0891b2);
+      background-size: 200% 200%;
+      animation: pulse 3s infinite, buttonGradient 10s ease infinite;
       color: white;
       padding: 0.3rem 1rem;
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: bold;
-      animation: pulse 2s infinite;
     }
     
     .pricing-header {
@@ -964,7 +1112,9 @@
     }
     
     .featured .price {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, #0ea5e9, #0891b2, #22c55e, #0ea5e9);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1018,13 +1168,17 @@
     }
     
     .featured .pricing-cta {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
+      background: linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
+      color: white !important;
       border: none;
     }
     
     .featured .pricing-cta:hover {
       box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+      color: white !important;
+      transform: translateY(-2px);
     }
     
     .pricing-footer {
@@ -1172,9 +1326,9 @@
     
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      max-width: 1000px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
@@ -1193,7 +1347,9 @@
     .team-avatar {
       width: 120px;
       height: 120px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #0ea5e9, #0891b2);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
       border-radius: 50%;
       margin: 0 auto 1rem;
       display: flex;
@@ -1345,7 +1501,7 @@
     .guarantee-icon {
       font-size: 2rem;
       margin-bottom: 1rem;
-      animation: checkmark 0.5s ease-out;
+      animation: checkmark 0.8s ease-out;
     }
     
     .guarantee-card h3 {
@@ -1571,17 +1727,6 @@
       color: #475569;
     }
     
-    /* Email obfuscation styles */
-    .email-obf {
-      color: #64748b;
-      text-decoration: underline;
-      transition: color 0.3s;
-    }
-    
-    .email-obf:hover {
-      color: var(--primary);
-    }
-    
     /* Footer CTA link style */
     .footer-contact a {
       color: var(--primary);
@@ -1608,7 +1753,11 @@
       }
       
       .team-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .color-orb {
+        opacity: 0.08;
       }
     }
     
@@ -1646,6 +1795,10 @@
       
       .hero-subtitle {
         font-size: 1rem;
+      }
+      
+      .color-orb {
+        display: none;
       }
       
       .services-grid,
@@ -1699,6 +1852,11 @@
   
   <!-- Hero Section with Animations -->
   <section class="hero">
+    <!-- Additional animated color orbs -->
+    <div class="color-orb orb-1"></div>
+    <div class="color-orb orb-2"></div>
+    <div class="color-orb orb-3"></div>
+    
     <div class="container">
       <div class="hero-content">
         <div class="badge">
@@ -1737,9 +1895,9 @@
         </div>
         
         <div class="trust-badges">
-          <span class="trust-badge green">→ Target: High inbox rates**</span>
-          <span class="trust-badge blue">→ 40-60% typical open rates</span>
-          <span class="trust-badge purple">→ Done-for-you in 48 hours</span>
+          <span class="trust-badge green"><span style="background: linear-gradient(90deg, #0ea5e9, #0891b2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">→</span> Target: High inbox rates**</span>
+          <span class="trust-badge blue"><span style="background: linear-gradient(90deg, #0891b2, #0ea5e9); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">→</span> 40-60% typical open rates</span>
+          <span class="trust-badge purple"><span style="background: linear-gradient(90deg, #0ea5e9, #22c55e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">→</span> Done-for-you in 48 hours</span>
         </div>
         
         <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 1rem;">
@@ -1767,7 +1925,7 @@
       
       <div class="problems-grid">
         <div class="problem-item">
-          <span class="problem-icon">❌</span>
+          <span class="problem-icon">•</span>
           <div class="problem-text">
             <h3>Emails landing in spam</h3>
             <p>Killing your domain reputation</p>
@@ -1775,7 +1933,7 @@
         </div>
         
         <div class="problem-item">
-          <span class="problem-icon">❌</span>
+          <span class="problem-icon">•</span>
           <div class="problem-text">
             <h3>Manual outreach</h3>
             <p>5 hours/day with zero results</p>
@@ -1783,7 +1941,7 @@
         </div>
         
         <div class="problem-item">
-          <span class="problem-icon">❌</span>
+          <span class="problem-icon">•</span>
           <div class="problem-text">
             <h3>"Spray and pray" campaigns</h3>
             <p>2% open rates burning money</p>
@@ -1791,7 +1949,7 @@
         </div>
         
         <div class="problem-item">
-          <span class="problem-icon">❌</span>
+          <span class="problem-icon">•</span>
           <div class="problem-text">
             <h3>Expensive agencies</h3>
             <p>$5,000/month for mediocre results</p>
@@ -1813,7 +1971,7 @@
       <p style="text-align: center; color: #64748b; margin-bottom: 3rem;">Installed & Ready in 48 Hours</p>
       
       <div class="services-grid">
-        <div class="service-card">
+        <a href="/email-infrastructure" class="service-card">
           <div class="service-icon icon-blue">🔧</div>
           <h3>Technical Infrastructure</h3>
           <p>The invisible foundation that makes everything work</p>
@@ -1824,10 +1982,10 @@
             <li>• Platform configuration</li>
           </ul>
           <span class="service-link">Learn more →</span>
-        </div>
+        </a>
         
         <div class="service-card">
-          <div class="service-icon icon-green">📧</div>
+          <div class="service-icon icon-green">🔧</div>
           <h3>Campaign Architecture</h3>
           <p>Your automated sales team that never sleeps</p>
           <ul class="service-features">
@@ -1853,7 +2011,7 @@
         </div>
         
         <div class="service-card">
-          <div class="service-icon icon-orange">✍️</div>
+          <div class="service-icon icon-orange">✏️</div>
           <h3>Conversion Copy Framework</h3>
           <p>Words that turn strangers into buyers</p>
           <ul class="service-features">
@@ -1952,7 +2110,7 @@
           </ul>
           <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
           <p class="pricing-footer">Live in 48 hours</p>
-          <p class="pricing-microcopy">No credit card required • Setup in 48h</p>
+          <p class="pricing-microcopy">Setup completed in 48 hours</p>
         </div>
         
         <!-- Accelerator -->
@@ -1976,7 +2134,7 @@
           </ul>
           <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" class="pricing-cta">Get Started</a>
           <p class="pricing-footer">Typical: 10+ leads in first week</p>
-          <p class="pricing-microcopy">No credit card required • Setup in 48h</p>
+          <p class="pricing-microcopy">Setup completed in 48 hours</p>
         </div>
         
         <!-- Enterprise -->
@@ -1999,7 +2157,7 @@
           </ul>
           <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" class="pricing-cta">Get Started</a>
           <p class="pricing-footer">Target: 50+ leads/week</p>
-          <p class="pricing-microcopy">No credit card required • Setup in 48h</p>
+          <p class="pricing-microcopy">Setup completed in 48 hours</p>
         </div>
       </div>
       
@@ -2031,7 +2189,7 @@
             <div class="avatar">MC</div>
             <div class="author-info">
               <h4>Marcus Chen</h4>
-              <p>SaaS Founder • <a href="#case-studies">View Case Study</a></p>
+              <p>SaaS Founder</p>
             </div>
           </div>
         </div>
@@ -2044,7 +2202,7 @@
             <div class="avatar">SW</div>
             <div class="author-info">
               <h4>Sarah Williams</h4>
-              <p>B2B Agency Owner • <a href="#case-studies">View Case Study</a></p>
+              <p>B2B Agency Owner</p>
             </div>
           </div>
         </div>
@@ -2057,7 +2215,7 @@
             <div class="avatar">DP</div>
             <div class="author-info">
               <h4>David Park</h4>
-              <p>Sales Director • <a href="#case-studies">View Case Study</a></p>
+              <p>Sales Director</p>
             </div>
           </div>
         </div>
@@ -2087,6 +2245,17 @@
             • Instantly Certified Partner<br>
             • 500+ systems deployed<br>
             • Former Sales Director at imisofts
+          </p>
+        </div>
+        
+        <div class="team-member">
+          <div class="team-avatar">TZ</div>
+          <h3>Tamia Zeeshan</h3>
+          <p class="role">Co-Founder & Marketing Manager</p>
+          <p class="credentials">
+            • Marketing Strategy Expert<br>
+            • Content & Campaign Specialist<br>
+            • 200+ successful campaigns
           </p>
         </div>
         
@@ -2312,7 +2481,7 @@
         
         <div class="footer-section">
           <h3>Services</h3>
-          <a href="#services">Email Infrastructure</a>
+          <a href="/email-infrastructure">Email Infrastructure</a>
           <a href="#services">Campaign Setup</a>
           <a href="#services">Lead Generation</a>
           <a href="#services">Copywriting</a>
@@ -2329,7 +2498,7 @@
         <div class="footer-section">
           <h3>Contact</h3>
           <div class="footer-contact">
-            <p>Email: <span class="email-obf" data-user="troppus" data-domain="moc.solamedloc"></span></p>
+            <p>Email: <a href="mailto:support@leadmark.io" style="color: var(--primary); text-decoration: none; transition: all 0.3s;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">support@leadmark.io</a></p>
             <p>Book a Call: <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Schedule Here</a></p>
             <p>Response Time: Within 2 hours</p>
             <p>Available: Mon-Fri, 9am-6pm EST</p>
@@ -2460,23 +2629,6 @@
         console.log('Mobile menu clicked');
       });
     }
-    
-    // Email obfuscation
-    document.addEventListener('DOMContentLoaded', function() {
-      const emailElements = document.querySelectorAll('.email-obf');
-      emailElements.forEach(function(element) {
-        const user = element.getAttribute('data-user');
-        const domain = element.getAttribute('data-domain');
-        if (user && domain) {
-          const email = user.split('').reverse().join('') + '@' + domain.split('').reverse().join('');
-          element.textContent = email;
-          element.style.cursor = 'pointer';
-          element.onclick = function() {
-            window.location.href = 'mailto:' + email;
-          };
-        }
-      });
-    });
     
     // Prevent iframe embedding (with error handling)
     try {
