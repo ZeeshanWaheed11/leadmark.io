@@ -48,7 +48,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://calendly.com">
   
-  <!-- Breadcrumb Schema -->
+  <!-- Structured Data Scripts -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,7 +67,6 @@
   }
   </script>
   
-  <!-- Product Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -101,31 +100,6 @@
       "@type": "AggregateRating",
       "ratingValue": "4.9",
       "reviewCount": "500"
-    }
-  }
-  </script>
-  
-  <!-- Service Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Email Server Infrastructure Setup",
-    "provider": {
-      "@type": "Organization",
-      "name": "Leadmark.io"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Worldwide"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Email Infrastructure Packages",
-      "itemListElement": [{
-        "@type": "OfferCatalog",
-        "name": "Infrastructure Setup Services"
-      }]
     }
   }
   </script>
@@ -1386,9 +1360,9 @@
     
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
@@ -1424,37 +1398,110 @@
       font-size: 0.9rem;
       color: #64748b;
       line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+    
+    /* FAQ Section with Dropdown */
+    .faq-section {
+      padding: 5rem 0;
+      background: var(--light-gray);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 12px;
       margin-bottom: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
     }
     
-    .author {
+    .faq-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .faq-item:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      cursor: pointer;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-    }
-    
-    .avatar {
-      width: 40px;
-      height: 40px;
-      background: #e2e8f0;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 0.9rem;
-      color: #64748b;
-    }
-    
-    .author-info h4 {
-      font-size: 0.9rem;
+      font-weight: 600;
       color: var(--dark);
-      margin-bottom: 0.1rem;
+      transition: all 0.3s ease;
+      user-select: none;
     }
     
-    .author-info p {
-      font-size: 0.75rem;
-      color: #94a3b8;
+    .faq-question:hover {
+      color: var(--primary);
+    }
+    
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-icon::before {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+    
+    .faq-icon::after {
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      transform: translateX(-50%);
+    }
+    
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    
+    .faq-item.open .faq-icon::after {
+      opacity: 0;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer-content {
+      padding: 0 1.5rem 1.5rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    
+    .faq-item.open .faq-answer {
+      max-height: 500px;
     }
     
     /* Final CTA Section */
@@ -1605,6 +1652,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
       
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
       .color-orb {
         opacity: 0.08;
       }
@@ -1730,276 +1781,220 @@
           </div>
           
           <h1>
-            Professional Email Infrastructure<br/>
-            <span class="gradient-text">Your Own Private Server</span><br/>
-            For Scalable Cold Outreach
+            Stop Sharing Servers With Spammers<br/>
+            <span class="gradient-text">Get Your Private Infrastructure</span><br/>
+            Scale Cold Email The Right Way
           </h1>
           
           <p class="hero-subtitle">
-            Stop sharing servers with spammers. Get dedicated email infrastructure with 7 professional inboxes per domain, complete DMARC setup, and optimized for maximum inbox placement.
+            Your own dedicated email server means zero reputation risk from other senders. Get 7 professional inboxes per domain with complete authentication, monitoring, and expert support.
           </p>
           
           <p class="hero-qualifier">
-            *Infrastructure live in 48 hours. Professional results with proper implementation.
-          </p>
+            *Infrastructure deployed in 48 hours. Results depend on proper implementation and list quality.</p>
           
           <!-- Evidence Strip -->
           <div class="evidence-strip">
             <div class="evidence-item">
-              <span class="evidence-icon" aria-hidden="true">→</span>
-              <span>Private Server Setup</span>
+              <span class="evidence-icon" aria-hidden="true">✓</span>
+              <span>100% Private Server</span>
             </div>
             <div class="evidence-item">
-              <span class="evidence-icon" aria-hidden="true">→</span>
+              <span class="evidence-icon" aria-hidden="true">✓</span>
               <span>7 Inboxes per Domain</span>
             </div>
             <div class="evidence-item">
-              <span class="evidence-icon" aria-hidden="true">→</span>
-              <span>Complete DMARC/SPF/DKIM</span>
+              <span class="evidence-icon" aria-hidden="true">✓</span>
+              <span>Complete Authentication</span>
             </div>
           </div>
           
           <div class="trust-badges">
-            <span class="trust-badge green"><span style="background: linear-gradient(90deg, #0ea5e9, #0891b2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;" aria-hidden="true">→</span> $49 per domain/year</span>
-            <span class="trust-badge blue"><span style="background: linear-gradient(90deg, #0891b2, #0ea5e9); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;" aria-hidden="true">→</span> 100% private infrastructure</span>
-            <span class="trust-badge purple"><span style="background: linear-gradient(90deg, #0ea5e9, #22c55e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;" aria-hidden="true">→</span> Setup in 48 hours</span>
+            <span class="trust-badge green">✓ $49 per domain/year only</span>
+            <span class="trust-badge blue">✓ Instantly & Smartlead ready</span>
+            <span class="trust-badge purple">✓ White-glove setup service</span>
           </div>
           
           <div class="cta-buttons">
-            <a href="#pricing" class="btn-primary">Choose Your Package</a>
-            <a href="#how-it-works" class="btn-secondary">See How It Works →</a>
+            <a href="#pricing" class="btn-primary">View Pricing Plans</a>
+            <a href="#how-it-works" class="btn-secondary">How It Works →</a>
           </div>
           
           <div class="stats">
-            <span>⭐ 500+ Servers Deployed</span>
-            <span>🏆 Instantly & Smartlead Ready</span>
-            <span>📧 Professional Infrastructure</span>
+            <span>500+ servers deployed</span>
+            <span>95% inbox placement average</span>
+            <span>48-hour deployment</span>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Benefits Section -->
+    <!-- Benefits Section - First After Hero -->
     <section class="benefits-section" aria-labelledby="benefits-heading">
       <div class="container">
-        <h2 id="benefits-heading" class="section-title">Why Private Servers Change Everything</h2>
+        <h2 id="benefits-heading" class="section-title">The Private Server Advantage</h2>
         
         <div class="benefits-grid">
           <div class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">01</span>
-            <h3>100% Private Infrastructure</h3>
-            <p>Your own dedicated server means no sharing reputation with other senders. Complete control over your email ecosystem.</p>
+            <span class="benefit-icon" aria-hidden="true">1</span>
+            <h3>Zero Reputation Risk</h3>
+            <p>Your server, your reputation. No more worrying about what other senders are doing to damage your deliverability.</p>
           </div>
           
           <div class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">02</span>
-            <h3>Scale Professionally</h3>
-            <p>Start with controlled sending, then scale progressively based on best practices. Add domains as you grow.</p>
+            <span class="benefit-icon" aria-hidden="true">2</span>
+            <h3>Professional Scale</h3>
+            <p>7 inboxes per domain means you can send meaningful volume while staying under spam radar thresholds.</p>
           </div>
           
           <div class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">03</span>
-            <h3>Optimized Deliverability</h3>
-            <p>Full DMARC, SPF, DKIM setup. IP rotation and professional warming protocols for maximum inbox placement.</p>
+            <span class="benefit-icon" aria-hidden="true">3</span>
+            <h3>Complete Authentication</h3>
+            <p>DMARC, SPF, DKIM all properly aligned. Pass every authentication check mailbox providers throw at you.</p>
           </div>
           
           <div class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">04</span>
-            <h3>Instant Integration</h3>
-            <p>Works seamlessly with Instantly and Smartlead. Your warmed inboxes upload automatically.</p>
+            <span class="benefit-icon" aria-hidden="true">4</span>
+            <h3>Smart IP Management</h3>
+            <p>Automatic IP rotation and reputation monitoring keeps your sending clean and consistent.</p>
           </div>
           
           <div class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">05</span>
-            <h3>Agency-Ready Solution</h3>
-            <p>Perfect for agencies running campaigns for multiple clients. Separate infrastructure for each.</p>
+            <span class="benefit-icon" aria-hidden="true">5</span>
+            <h3>Platform Integration</h3>
+            <p>Pre-configured for Instantly and Smartlead. Your inboxes connect seamlessly, no technical headaches.</p>
           </div>
           
           <div class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">06</span>
-            <h3>Fully Managed Service</h3>
-            <p>We handle all technical setup, monitoring, and maintenance. You focus on campaigns.</p>
+            <span class="benefit-icon" aria-hidden="true">6</span>
+            <h3>Expert Management</h3>
+            <p>We handle all technical complexity. You focus on crafting campaigns that convert.</p>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- How It Works -->
+    <!-- How It Works - Second -->
     <section class="process-section" id="how-it-works" aria-labelledby="process-heading">
       <div class="container">
-        <h2 id="process-heading" class="section-title">Your Path to Professional Email Infrastructure</h2>
+        <h2 id="process-heading" class="section-title">From Zero to Sending in 48 Hours</h2>
         
         <div class="process-steps">
           <div class="step">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3>Buy Your Domains <span>(Today)</span></h3>
-              <p>Purchase domains on GoDaddy, Porkbun, or NameCheap. We recommend aged domains for better reputation.</p>
+              <h3>Purchase Your Domains <span>(Day 1)</span></h3>
+              <p>Buy domains from GoDaddy, Porkbun, or NameCheap. We recommend aged domains when possible for better initial reputation.</p>
             </div>
           </div>
           
           <div class="step">
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3>Complete Onboarding <span>(10 Minutes)</span></h3>
-              <p>Fill out our simple form. Share your domain details and platform preferences.</p>
+              <h3>Quick Onboarding <span>(10 Minutes)</span></h3>
+              <p>Fill out our simple form with domain details and platform preferences. That's all we need from you.</p>
             </div>
           </div>
           
           <div class="step">
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3>Infrastructure Setup <span>(24 Hours)</span></h3>
-              <p>We create 7 professional inboxes per domain with complete authentication and IP rotation.</p>
+              <h3>Infrastructure Build <span>(24-48 Hours)</span></h3>
+              <p>We deploy your private server, create 7 professional inboxes per domain, configure all authentication protocols.</p>
             </div>
           </div>
           
           <div class="step">
             <div class="step-number green">4</div>
             <div class="step-content">
-              <h3>Launch Campaigns <span>(48 Hours)</span></h3>
-              <p>Your infrastructure is ready. Start sending professional cold email campaigns at scale.</p>
+              <h3>Start Sending <span>(Day 2)</span></h3>
+              <p>Your infrastructure is live. Begin controlled sending with our warming protocol for optimal deliverability.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Features Section -->
-    <section class="features-section" aria-labelledby="features-heading">
-      <div class="container">
-        <h2 id="features-heading" class="section-title">Everything Included in Your Private Server</h2>
-        
-        <div class="features-grid">
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">📧</span>
-            <h4>7 Inboxes/Domain</h4>
-            <p>Professional email accounts</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">🛡️</span>
-            <h4>DMARC Setup</h4>
-            <p>Complete authentication</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">🔄</span>
-            <h4>IP Rotation</h4>
-            <p>Automatic rotation</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">📈</span>
-            <h4>Smart Warming</h4>
-            <p>14-day protocol</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">🔗</span>
-            <h4>Platform Ready</h4>
-            <p>Instantly & Smartlead</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">📊</span>
-            <h4>Monitoring</h4>
-            <p>Track reputation</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">🚀</span>
-            <h4>Instant Scaling</h4>
-            <p>Add domains anytime</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">💬</span>
-            <h4>Expert Support</h4>
-            <p>Direct team access</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Pricing Section -->
+    <!-- Pricing Section - Third -->
     <section class="pricing-section" id="pricing" aria-labelledby="pricing-heading">
       <div class="container">
-        <h2 id="pricing-heading" class="section-title">Choose Your Infrastructure Package</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Simple, transparent pricing. Professional results.</p>
+        <h2 id="pricing-heading" class="section-title">Simple, Transparent Pricing</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Choose the package that fits your sending volume</p>
         
         <div class="pricing-grid">
           <!-- Starter -->
           <div class="pricing-card">
             <div class="pricing-header">
-              <h3>🥉 Starter</h3>
-              <p>Perfect for testing the waters</p>
+              <h3>Starter</h3>
+              <p>Test the waters professionally</p>
               <div class="price">$490<span class="price-period">/year</span></div>
             </div>
             <ul class="pricing-features">
-              <li><span class="check">→</span> 10 domains minimum</li>
-              <li><span class="check">→</span> 70 professional inboxes</li>
-              <li><span class="check">→</span> Full DMARC/SPF/DKIM</li>
-              <li><span class="check">→</span> IP rotation included</li>
-              <li><span class="check">→</span> 14-day warming</li>
-              <li><span class="check">→</span> Platform integration</li>
+              <li><span class="check">✓</span> 10 domains minimum</li>
+              <li><span class="check">✓</span> 70 professional inboxes total</li>
+              <li><span class="check">✓</span> Complete DMARC/SPF/DKIM</li>
+              <li><span class="check">✓</span> IP rotation included</li>
+              <li><span class="check">✓</span> 14-day warming protocol</li>
+              <li><span class="check">✓</span> Platform integration</li>
+              <li><span class="check">✓</span> Email support</li>
             </ul>
-            <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Place Your Order</a>
-            <p class="pricing-footer">10 domains × $49</p>
-            <p class="pricing-microcopy">Setup completed in 48 hours</p>
+            <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
+            <p class="pricing-footer">Perfect for testing campaigns</p>
+            <p class="pricing-microcopy">Setup in 48 hours</p>
           </div>
           
           <!-- Professional -->
           <div class="pricing-card featured">
             <span class="popular-badge">MOST POPULAR</span>
             <div class="pricing-header">
-              <h3>🥇 Professional</h3>
-              <p>For serious email operations</p>
+              <h3>Professional</h3>
+              <p>Scale your outreach properly</p>
               <div class="price">$1,225<span class="price-period">/year</span></div>
             </div>
             <ul class="pricing-features">
-              <li><span class="check">→</span> Everything in Starter PLUS:</li>
-              <li><span class="check">→</span> 25 domains included</li>
-              <li><span class="check">→</span> 175 professional inboxes</li>
-              <li><span class="check">→</span> Priority server allocation</li>
-              <li><span class="check">→</span> Advanced IP management</li>
-              <li><span class="check">→</span> Reputation monitoring</li>
-              <li><span class="check">→</span> Slack support channel</li>
-              <li><span class="check">→</span> Weekly optimization calls</li>
+              <li><span class="check">✓</span> Everything in Starter plus:</li>
+              <li><span class="check">✓</span> 25 domains included</li>
+              <li><span class="check">✓</span> 175 professional inboxes total</li>
+              <li><span class="check">✓</span> Priority server allocation</li>
+              <li><span class="check">✓</span> Advanced IP management</li>
+              <li><span class="check">✓</span> Reputation monitoring dashboard</li>
+              <li><span class="check">✓</span> Slack support channel</li>
+              <li><span class="check">✓</span> Weekly optimization calls</li>
             </ul>
-            <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Place Your Order</a>
-            <p class="pricing-footer">25 domains × $49</p>
-            <p class="pricing-microcopy">Setup completed in 48 hours</p>
+            <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
+            <p class="pricing-footer">Best for growing agencies</p>
+            <p class="pricing-microcopy">Priority setup available</p>
           </div>
           
           <!-- Enterprise -->
           <div class="pricing-card">
             <div class="pricing-header">
-              <h3>🚀 Enterprise</h3>
+              <h3>Enterprise</h3>
               <p>Unlimited scaling potential</p>
               <div class="price">$2,450+<span class="price-period">/year</span></div>
             </div>
             <ul class="pricing-features">
-              <li><span class="check">→</span> 50+ domains scalable</li>
-              <li><span class="check">→</span> 350+ professional inboxes</li>
-              <li><span class="check">→</span> Dedicated server cluster</li>
-              <li><span class="check">→</span> Custom warming schedules</li>
-              <li><span class="check">→</span> White-label option</li>
-              <li><span class="check">→</span> Priority 24/7 support</li>
-              <li><span class="check">→</span> Dedicated account manager</li>
+              <li><span class="check">✓</span> 50+ domains scalable</li>
+              <li><span class="check">✓</span> 350+ professional inboxes</li>
+              <li><span class="check">✓</span> Dedicated server cluster</li>
+              <li><span class="check">✓</span> Custom warming schedules</li>
+              <li><span class="check">✓</span> White-label options available</li>
+              <li><span class="check">✓</span> 24/7 priority support</li>
+              <li><span class="check">✓</span> Dedicated account manager</li>
+              <li><span class="check">✓</span> Custom integrations</li>
             </ul>
-            <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Place Your Order</a>
-            <p class="pricing-footer">50+ domains × $49</p>
-            <p class="pricing-microcopy">Setup completed in 48 hours</p>
+            <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="pricing-cta">Contact Sales</a>
+            <p class="pricing-footer">For serious operations</p>
+            <p class="pricing-microcopy">Custom deployment timeline</p>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Comparison Section -->
+    <!-- Comparison Table - Fourth (Right after Pricing) -->
     <section class="comparison-section" aria-labelledby="comparison-heading">
       <div class="container">
-        <h2 id="comparison-heading" class="section-title">Private Server vs. Shared Infrastructure</h2>
+        <h2 id="comparison-heading" class="section-title">Private vs. Shared Infrastructure</h2>
         
         <div class="comparison-table">
           <table>
@@ -2012,29 +2007,39 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Server Type</strong></td>
-                <td><span class="check-mark">✔</span> 100% Private</td>
-                <td><span class="x-mark">✗</span> Shared</td>
+                <td><strong>Server Ownership</strong></td>
+                <td><span class="check-mark">✓</span> 100% Yours</td>
+                <td><span class="x-mark">×</span> Shared with others</td>
               </tr>
               <tr>
                 <td><strong>Reputation Risk</strong></td>
-                <td><span class="check-mark">✔</span> Zero</td>
-                <td><span class="x-mark">✗</span> High</td>
+                <td><span class="check-mark">✓</span> Zero from others</td>
+                <td><span class="x-mark">×</span> High risk</td>
               </tr>
               <tr>
                 <td><strong>Inboxes per Domain</strong></td>
-                <td><span class="check-mark">✔</span> 7 Professional</td>
+                <td><span class="check-mark">✓</span> 7 Professional</td>
                 <td>1-3 Basic</td>
               </tr>
               <tr>
-                <td><strong>IP Rotation</strong></td>
-                <td><span class="check-mark">✔</span> Unlimited</td>
-                <td>Limited</td>
+                <td><strong>IP Management</strong></td>
+                <td><span class="check-mark">✓</span> Dedicated rotation</td>
+                <td>Shared pool</td>
+              </tr>
+              <tr>
+                <td><strong>Authentication Setup</strong></td>
+                <td><span class="check-mark">✓</span> Complete & aligned</td>
+                <td>Basic or DIY</td>
               </tr>
               <tr>
                 <td><strong>Support Level</strong></td>
-                <td><span class="check-mark">✔</span> Direct Expert</td>
-                <td>Ticket System</td>
+                <td><span class="check-mark">✓</span> Direct expert team</td>
+                <td>Ticket system</td>
+              </tr>
+              <tr>
+                <td><strong>Scalability</strong></td>
+                <td><span class="check-mark">✓</span> Unlimited domains</td>
+                <td>Platform limits</td>
               </tr>
             </tbody>
           </table>
@@ -2042,46 +2047,227 @@
       </div>
     </section>
     
-    <!-- Testimonials -->
-    <section class="testimonials-section" aria-labelledby="testimonials-heading">
+    <!-- Features Grid - Fifth -->
+    <section class="features-section" aria-labelledby="features-heading">
       <div class="container">
-        <h2 id="testimonials-heading" class="section-title">Agencies Love Our Infrastructure</h2>
+        <h2 id="features-heading" class="section-title">Everything You Need to Send at Scale</h2>
         
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"We went from limited sending to professional volume. The private server setup is a game-changer for our agency."</p>
-            <div class="author">
-              <div class="avatar">MT</div>
-              <div class="author-info">
-                <h4>Michael Torres</h4>
-                <p>Agency Owner</p>
-              </div>
-            </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>7 Inboxes/Domain</h4>
+            <p>Maximum sending capacity</p>
           </div>
           
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"The 7 inboxes per domain setup is brilliant. Our volume increased 5x while maintaining 95%+ inbox placement."</p>
-            <div class="author">
-              <div class="avatar">SJ</div>
-              <div class="author-info">
-                <h4>Sarah Johnson</h4>
-                <p>Growth Manager</p>
-              </div>
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>Full Authentication</h4>
+            <p>DMARC, SPF, DKIM aligned</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>IP Rotation</h4>
+            <p>Automatic management</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>Smart Warming</h4>
+            <p>14-day ramp protocol</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>Platform Ready</h4>
+            <p>Instantly & Smartlead</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>Reputation Monitoring</h4>
+            <p>Real-time tracking</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>Expert Support</h4>
+            <p>Direct team access</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h4>Instant Scaling</h4>
+            <p>Add domains anytime</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Deliverability Framework - Sixth -->
+    <section class="process-section" id="deliverability" aria-labelledby="deliverability-heading">
+      <div class="container">
+        <h2 id="deliverability-heading" class="section-title">Our Deliverability Framework</h2>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-number">A</div>
+            <div class="step-content">
+              <h3>Authentication First <span>(Foundation)</span></h3>
+              <p>Perfect SPF, DKIM and DMARC alignment ensures mailbox providers trust your identity from day one.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">B</div>
+            <div class="step-content">
+              <h3>Quality Control <span>(List Hygiene)</span></h3>
+              <p>Bounce management, trap suppression, and engagement monitoring keep your reputation pristine.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">C</div>
+            <div class="step-content">
+              <h3>Smart Sending <span>(Human Patterns)</span></h3>
+              <p>Natural sending patterns, proper warm-up, and daily caps that mimic real human behavior.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number green">D</div>
+            <div class="step-content">
+              <h3>Active Monitoring <span>(Stay Ahead)</span></h3>
+              <p>Continuous reputation tracking, blacklist monitoring, and proactive issue resolution.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Final CTA -->
+    <!-- Testimonials - Seventh -->
+    
+    
+    <!-- Testimonials - Sixth -->
+    <section class="testimonials-section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 id="testimonials-heading" class="section-title">What Our Clients Say</h2>
+        
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <h4 style="font-size: 1rem; color: var(--dark); margin-bottom: 0.3rem;">Michael Torres</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem;">Agency Owner</p>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Moving to private infrastructure was the best decision for our agency. We went from 60% to 95% inbox placement in two weeks."</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <h4 style="font-size: 1rem; color: var(--dark); margin-bottom: 0.3rem;">Sarah Johnson</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem;">Growth Manager</p>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The 7 inboxes per domain setup is genius. We're sending 5x the volume with better deliverability than before."</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <h4 style="font-size: 1rem; color: var(--dark); margin-bottom: 0.3rem;">Robert Kim</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem;">Sales Director</p>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Setup was seamless. Within 48 hours we had everything running. The support team knows their stuff."</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <h4 style="font-size: 1rem; color: var(--dark); margin-bottom: 0.3rem;">Emma Parker</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem;">Marketing Lead</p>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Finally, an infrastructure solution that actually works. No more worrying about what other senders are doing."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ - Seventh -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span>How quickly can I start sending?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </div>
+            <div class="faq-answer" aria-hidden="true">
+              <div class="faq-answer-content">
+                Your infrastructure is ready in 48 hours. We recommend starting with our 14-day warming protocol for optimal results, but you can begin controlled sending immediately.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span>Do you work with Instantly and Smartlead?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </div>
+            <div class="faq-answer" aria-hidden="true">
+              <div class="faq-answer-content">
+                Yes, perfectly. Your inboxes come pre-configured with correct SMTP/IMAP settings and authentication. They connect seamlessly to both platforms.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span>Who owns the infrastructure?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </div>
+            <div class="faq-answer" aria-hidden="true">
+              <div class="faq-answer-content">
+                You do. While we manage and optimize everything, the domains and inboxes remain in your control. You can take them anywhere.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span>What if deliverability drops?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </div>
+            <div class="faq-answer" aria-hidden="true">
+              <div class="faq-answer-content">
+                We monitor 24/7 and act immediately. We'll pause sending, rotate IPs, adjust warming, and run diagnostics until everything is green again.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span>Can I add more domains later?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </div>
+            <div class="faq-answer" aria-hidden="true">
+              <div class="faq-answer-content">
+                Absolutely. Scale up anytime. Just purchase the domains and we'll have them deployed within 48 hours at the same $49/domain rate.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span>What support is included?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </div>
+            <div class="faq-answer" aria-hidden="true">
+              <div class="faq-answer-content">
+                All packages include email support. Professional and Enterprise tiers get Slack access and weekly optimization calls with our deliverability experts.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA - Last -->
     <section class="final-cta-section" aria-labelledby="final-cta-heading">
       <div class="container">
-        <h2 id="final-cta-heading">Ready to Scale Your Cold Email Operations?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">Get your private server infrastructure set up in 48 hours</p>
+        <h2 id="final-cta-heading">Ready to Own Your Email Infrastructure?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">Stop sharing servers. Start scaling professionally.</p>
         <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-white">
-          Reserve Your Server Now →
+          Reserve Your Private Server →
         </a>
       </div>
     </section>
@@ -2090,15 +2276,6 @@
   <!-- Footer -->
   <footer role="contentinfo">
     <div class="container">
-      <!-- Footer content with proper semantic structure -->
-      <div style="text-align: center; padding: 2rem 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 2rem;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--dark);">Ready to Generate More Leads?</h3>
-        <p style="color: #64748b; margin-bottom: 1rem;">Get your cold email system set up in 48 hours</p>
-        <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.75rem 1.5rem;">
-          Book Your Free Strategy Call →
-        </a>
-      </div>
-      
       <div class="footer-content">
         <div class="footer-section">
           <h3>Quick Links</h3>
@@ -2222,7 +2399,7 @@
     }, observerOptions);
     
     // Observe all elements with animations
-    document.querySelectorAll('.section-title, .benefit-card, .step, .feature-card, .pricing-card, .testimonial-card').forEach(el => {
+    document.querySelectorAll('.section-title, .benefit-card, .step, .feature-card, .pricing-card, .testimonial-card, .faq-item').forEach(el => {
       observer.observe(el);
     });
     
@@ -2245,6 +2422,29 @@
     
     document.querySelectorAll('.testimonial-card').forEach((item, index) => {
       item.style.transitionDelay = `${index * 0.15}s`;
+    });
+    
+    document.querySelectorAll('.faq-item').forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // FAQ Dropdown Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close other open items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('open')) {
+            otherItem.classList.remove('open');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('open');
+      });
     });
     
     // Navbar scroll effect
