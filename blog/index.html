@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cold Email Marketing Blog | Expert Insights & Strategies | Leadmark.io</title>
+  <meta name="description" content="Master cold email marketing with our expert guides on infrastructure setup, deliverability optimization, lead generation strategies, and campaign automation. Learn from 500+ successful implementations.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://leadmark.io/blog/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Cold Email Marketing Blog | Leadmark.io">
+  <meta property="og:description" content="Expert insights on cold email infrastructure, deliverability, and lead generation strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leadmark.io/blog/">
+  <meta property="og:image" content="https://leadmark.io/og-blog.jpg">
+  <meta property="og:site_name" content="Leadmark.io">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cold Email Marketing Blog | Leadmark.io">
+  <meta name="twitter:description" content="Expert insights on cold email infrastructure and lead generation.">
+  <meta name="twitter:image" content="https://leadmark.io/twitter-blog.jpg">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Leadmark.io">
+  <meta name="keywords" content="cold email blog, email marketing insights, deliverability guides, lead generation strategies, email infrastructure setup">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Leadmark.io Cold Email Marketing Blog",
+    "description": "Expert insights and strategies for cold email marketing success",
+    "url": "https://leadmark.io/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Leadmark.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://leadmark.io/logo.png"
+      }
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "The Complete Guide to Cold Email Infrastructure Setup in 2025",
+        "url": "https://leadmark.io/blog/cold-email-infrastructure-setup-guide-2025/",
+        "datePublished": "2025-01-20",
+        "author": {"@type": "Person", "name": "Zeeshan Waheed"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Instantly vs Smartlead: Which Platform Wins for Agencies?",
+        "url": "https://leadmark.io/blog/instantly-vs-smartlead-comparison-2025/",
+        "datePublished": "2025-01-18",
+        "author": {"@type": "Person", "name": "Zeeshan Waheed"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Achieve 95% Email Inbox Placement Rate",
+        "url": "https://leadmark.io/blog/email-inbox-placement-optimization/",
+        "datePublished": "2025-01-15",
+        "author": {"@type": "Person", "name": "Ali Anayat"}
+      }
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://leadmark.io"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://leadmark.io/blog/"
+    }]
+  }
+  </script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #0ea5e9;
+      --secondary: #22c55e;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f8fafc;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Skip to main content */
+    .skip-to-main {
+      position: absolute;
+      left: -9999px;
+      z-index: 9999;
+      padding: 1em;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .skip-to-main:focus {
+      left: 0;
+      top: 0;
+    }
+    
+    /* Navbar - Consistent with main site */
+    .navbar-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: 90%;
+      max-width: 1100px;
+    }
+    
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    header:hover {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--dark);
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+    
+    nav a.active {
+      color: var(--primary);
+    }
+    
+    .btn-header {
+      background: linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    
+    @keyframes buttonGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .btn-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+      color: white !important;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--dark);
+    }
+    
+    /* Blog Hero Section */
+    .blog-hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      padding: 8rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(45deg, #0ea5e9, #0891b2);
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.1;
+      top: -200px;
+      right: -100px;
+      animation: float 25s infinite ease-in-out;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-20px, 20px) scale(1.1); }
+    }
+    
+    .blog-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .blog-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .blog-hero .subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+    
+    /* Blog Categories */
+    .blog-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+    
+    .category-tag {
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      color: var(--dark);
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .category-tag:hover,
+    .category-tag.active {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    }
+    
+    /* Blog Stats */
+    .blog-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    
+    /* Blog Grid */
+    .blog-section {
+      padding: 4rem 0;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    /* Blog Card */
+    .blog-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    
+    .blog-card-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #0ea5e9, #0891b2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .blog-card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s;
+    }
+    
+    .blog-card:hover .blog-card-image::after {
+      opacity: 0;
+    }
+    
+    .category-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      z-index: 1;
+    }
+    
+    .blog-card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+    
+    .blog-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+    
+    .blog-excerpt {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    
+    .read-more {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+    
+    .blog-card:hover .read-more {
+      gap: 1rem;
+    }
+    
+    /* Featured Post */
+    .featured-post {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: linear-gradient(135deg, #f8fafc, #ffffff);
+      border: 2px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .featured-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--secondary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      z-index: 2;
+    }
+    
+    .featured-post .blog-card-image {
+      height: 100%;
+      min-height: 300px;
+    }
+    
+    .featured-post .blog-card-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-post h2 {
+      font-size: 1.75rem;
+    }
+    
+    /* Newsletter CTA */
+    .newsletter-section {
+      background: linear-gradient(135deg, #0ea5e9, #0891b2);
+      padding: 3rem 0;
+      margin: 3rem 0;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+    }
+    
+    .newsletter-content h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .newsletter-content p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    
+    .newsletter-form button {
+      background: white;
+      color: var(--primary);
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Load More */
+    .load-more-container {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    .load-more-btn {
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .load-more-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+    }
+    
+    /* Footer - Same as main site */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .footer-section a {
+      display: block;
+      color: #64748b;
+      text-decoration: none;
+      padding: 0.25rem 0;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .navbar-wrapper {
+        width: 95%;
+        top: 10px;
+      }
+      
+      nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .blog-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-post {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .blog-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+  
+  <!-- Navbar -->
+  <div class="navbar-wrapper">
+    <header role="banner">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l3.5 6.5L22 10l-6.5 3.5L12 20l-3.5-6.5L2 10l6.5-1.5L12 2z" fill="#0ea5e9"/>
+          </svg>
+          Leadmark.io
+        </a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/#services">Services</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/blog/" class="active">Blog</a>
+          <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-header">Get Started</a>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+  
+  <main id="main-content">
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+      <div class="container">
+        <div class="blog-hero-content">
+          <h1>Cold Email Marketing Insights</h1>
+          <p class="subtitle">Expert strategies, technical guides, and proven tactics from 500+ successful email campaigns</p>
+          
+          <div class="blog-categories">
+            <a href="#" class="category-tag active" data-category="all">All Posts</a>
+            <a href="#" class="category-tag" data-category="infrastructure">Infrastructure</a>
+            <a href="#" class="category-tag" data-category="deliverability">Deliverability</a>
+            <a href="#" class="category-tag" data-category="tools">Tools & Platforms</a>
+            <a href="#" class="category-tag" data-category="strategy">Strategy</a>
+            <a href="#" class="category-tag" data-category="case-studies">Case Studies</a>
+          </div>
+          
+          <div class="blog-stats">
+            <div class="stat">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Expert Guides</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">2.5M</div>
+              <div class="stat-label">Emails Analyzed</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">95%</div>
+              <div class="stat-label">Avg Inbox Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Blog Grid -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="blog-grid">
+          <!-- Featured Post -->
+          <article class="blog-card featured-post">
+            <span class="featured-badge">Featured</span>
+            <div class="blog-card-image">
+              <span class="category-badge">Infrastructure</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <div class="author">
+                  <div class="author-avatar">ZW</div>
+                  <span>Zeeshan Waheed</span>
+                </div>
+                <span>•</span>
+                <time>January 20, 2025</time>
+                <span>•</span>
+                <span>15 min read</span>
+              </div>
+              <h2>The Complete Guide to Cold Email Infrastructure Setup in 2025</h2>
+              <p class="blog-excerpt">Everything you need to know about building a bulletproof cold email infrastructure. From domain selection and DNS configuration to warming strategies and platform integration. Based on 500+ successful implementations.</p>
+              <a href="/blog/cold-email-infrastructure-setup-guide-2025/" class="read-more">
+                Read Full Guide →
+              </a>
+            </div>
+          </article>
+          
+          <!-- Regular Posts -->
+          <article class="blog-card">
+            <a href="/blog/instantly-vs-smartlead-comparison-2025/">
+              <div class="blog-card-image">
+                <span class="category-badge">Tools & Platforms</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">ZW</div>
+                    <span>Zeeshan Waheed</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 18, 2025</time>
+                </div>
+                <h2>Instantly vs Smartlead: Which Platform Wins for Agencies?</h2>
+                <p class="blog-excerpt">A detailed comparison of the two leading cold email platforms. Features, pricing, deliverability, and real-world performance data from managing 100+ accounts on both platforms.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="blog-card">
+            <a href="/blog/email-inbox-placement-optimization/">
+              <div class="blog-card-image">
+                <span class="category-badge">Deliverability</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">AA</div>
+                    <span>Ali Anayat</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 15, 2025</time>
+                </div>
+                <h2>How to Achieve 95% Email Inbox Placement Rate</h2>
+                <p class="blog-excerpt">The technical blueprint for maximizing inbox placement. Learn about authentication protocols, reputation management, and the exact steps we use to maintain 95%+ inbox rates.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="blog-card">
+            <a href="/blog/cold-email-costs-breakdown/">
+              <div class="blog-card-image">
+                <span class="category-badge">Strategy</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">RA</div>
+                    <span>Rehan Awan</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 12, 2025</time>
+                </div>
+                <h2>Cold Email Costs Breakdown: Real Numbers from 500+ Campaigns</h2>
+                <p class="blog-excerpt">What does cold email really cost? We break down every expense from domains to tools to management, with actual data from hundreds of campaigns.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="blog-card">
+            <a href="/blog/email-warming-strategy-guide/">
+              <div class="blog-card-image">
+                <span class="category-badge">Deliverability</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">AA</div>
+                    <span>Ali Anayat</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 10, 2025</time>
+                </div>
+                <h2>Email Warming: The 30-Day Protocol That Actually Works</h2>
+                <p class="blog-excerpt">Stop guessing with email warming. Here's the exact day-by-day protocol we use to warm new domains and achieve consistent high deliverability.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="blog-card">
+            <a href="/blog/b2b-lead-generation-case-study/">
+              <div class="blog-card-image">
+                <span class="category-badge">Case Studies</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">TZ</div>
+                    <span>Tamia Zeeshan</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 8, 2025</time>
+                </div>
+                <h2>Case Study: From 0 to $280K in 90 Days with Cold Email</h2>
+                <p class="blog-excerpt">How a SaaS startup used our cold email infrastructure to generate $280K in new revenue in just 3 months. Complete breakdown of strategy, tools, and results.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+        </div>
+        
+        <!-- Newsletter CTA -->
+        <div class="newsletter-section">
+          <div class="container">
+            <div class="newsletter-content">
+              <h3>Get Weekly Cold Email Insights</h3>
+              <p>Join 5,000+ marketers getting exclusive tips on deliverability and lead generation</p>
+              <form class="newsletter-form" action="#" method="post">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- More Posts -->
+        <div class="blog-grid">
+          <article class="blog-card">
+            <a href="/blog/spf-dkim-dmarc-setup-guide/">
+              <div class="blog-card-image">
+                <span class="category-badge">Infrastructure</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">AA</div>
+                    <span>Ali Anayat</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 5, 2025</time>
+                </div>
+                <h2>SPF, DKIM, DMARC: The Complete Authentication Guide</h2>
+                <p class="blog-excerpt">Master email authentication protocols. Step-by-step setup instructions, common mistakes to avoid, and how to verify everything is working correctly.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="blog-card">
+            <a href="/blog/cold-email-copywriting-formulas/">
+              <div class="blog-card-image">
+                <span class="category-badge">Strategy</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">RA</div>
+                    <span>Rehan Awan</span>
+                  </div>
+                  <span>•</span>
+                  <time>January 3, 2025</time>
+                </div>
+                <h2>7 Cold Email Templates That Generated $1M+ in Pipeline</h2>
+                <p class="blog-excerpt">The exact email templates and formulas we've used to generate millions in pipeline value. Includes subject lines, follow-up sequences, and A/B test results.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="blog-card">
+            <a href="/blog/email-deliverability-monitoring/">
+              <div class="blog-card-image">
+                <span class="category-badge">Deliverability</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <div class="author">
+                    <div class="author-avatar">ZW</div>
+                    <span>Zeeshan Waheed</span>
+                  </div>
+                  <span>•</span>
+                  <time>December 28, 2024</time>
+                </div>
+                <h2>How to Monitor and Maintain Email Deliverability</h2>
+                <p class="blog-excerpt">Set up comprehensive deliverability monitoring. Tools, metrics, and automated alerts to catch issues before they impact your campaigns.</p>
+                <span class="read-more">Read More →</span>
+              </div>
+            </a>
+          </article>
+        </div>
+        
+        <!-- Load More -->
+        <div class="load-more-container">
+          <a href="#" class="load-more-btn">Load More Articles</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="/">Home</a>
+          <a href="/#services">Our Services</a>
+          <a href="/#pricing">Pricing Plans</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Services</h3>
+          <a href="/email-infrastructure">Email Infrastructure</a>
+          <a href="/#services">Campaign Setup</a>
+          <a href="/#services">Lead Generation</a>
+          <a href="/#services">Copywriting</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <a href="/blog/">Blog Articles</a>
+          <a href="/blog/cold-email-infrastructure-setup-guide-2025/">Setup Guide</a>
+          <a href="/blog/instantly-vs-smartlead-comparison-2025/">Platform Comparison</a>
+          <a href="/#faq">FAQs</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p style="color: #64748b; font-size: 0.9rem;">
+            Email: support@leadmark.io<br>
+            Book a Call: <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" style="color: var(--primary);">Schedule Here</a><br>
+            Response Time: Within 2 hours
+          </p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #e2e8f0; margin-top: 2rem;">
+        <p style="color: #94a3b8; font-size: 0.9rem;">© 2025 Leadmark.io. All rights reserved. | <a href="/privacy-policy" style="color: var(--primary); text-decoration: none;">Privacy</a> | <a href="/terms-of-service" style="color: var(--primary); text-decoration: none;">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Category filtering
+    document.querySelectorAll('.category-tag').forEach(tag => {
+      tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.category-tag').forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        // Add filtering logic here
+      });
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    // Add mobile menu logic here
+    
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = '0s';
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.blog-card').forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
