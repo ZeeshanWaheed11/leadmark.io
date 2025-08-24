@@ -353,6 +353,21 @@
       gap: 0.5rem;
     }
     
+    /* Featured Image Section */
+    .featured-image {
+      margin: 3rem 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+    }
+    
+    .featured-image svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
     /* Table of Contents */
     .toc {
       background: var(--light-gray);
@@ -676,6 +691,11 @@
       table {
         font-size: 0.9rem;
       }
+      
+      .featured-image {
+        margin: 2rem -20px;
+        border-radius: 0;
+      }
     }
   </style>
 </head>
@@ -736,6 +756,184 @@
   <!-- Main Content -->
   <main>
     <div class="article-container">
+      <!-- Featured Image -->
+      <div class="featured-image">
+        <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background Gradient -->
+          <defs>
+            <!-- Main gradient matching website theme -->
+            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#0891b2;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#22c55e;stop-opacity:1" />
+            </linearGradient>
+            
+            <!-- Subtle overlay gradient -->
+            <linearGradient id="overlayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+              <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+            </linearGradient>
+            
+            <!-- Glow effect -->
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            
+            <!-- Shadow -->
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+          
+          <!-- Background -->
+          <rect width="1200" height="630" fill="url(#bgGradient)"/>
+          
+          <!-- Animated floating particles -->
+          <circle cx="100" cy="100" r="40" fill="white" opacity="0.05">
+            <animate attributeName="cy" values="100;500;100" dur="20s" repeatCount="indefinite"/>
+            <animate attributeName="cx" values="100;200;100" dur="15s" repeatCount="indefinite"/>
+          </circle>
+          
+          <circle cx="1100" cy="500" r="60" fill="white" opacity="0.05">
+            <animate attributeName="cy" values="500;100;500" dur="25s" repeatCount="indefinite"/>
+            <animate attributeName="cx" values="1100;1000;1100" dur="18s" repeatCount="indefinite"/>
+          </circle>
+          
+          <circle cx="600" cy="300" r="30" fill="white" opacity="0.03">
+            <animate attributeName="r" values="30;50;30" dur="10s" repeatCount="indefinite"/>
+          </circle>
+          
+          <!-- Grid pattern overlay -->
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/>
+            </pattern>
+          </defs>
+          <rect width="1200" height="630" fill="url(#grid)"/>
+          
+          <!-- Central Infrastructure Illustration -->
+          <g transform="translate(600, 315)">
+            <!-- Central server -->
+            <rect x="-60" y="-40" width="120" height="80" rx="8" fill="white" filter="url(#shadow)"/>
+            <rect x="-50" y="-30" width="100" height="10" rx="2" fill="#0ea5e9"/>
+            <rect x="-50" y="-10" width="100" height="10" rx="2" fill="#e2e8f0"/>
+            <rect x="-50" y="10" width="100" height="10" rx="2" fill="#e2e8f0"/>
+            <circle cx="40" cy="-25" r="3" fill="#22c55e">
+              <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Email nodes connecting to server -->
+            <!-- Node 1 - Top Left -->
+            <g transform="translate(-200, -150)">
+              <circle r="35" fill="white" filter="url(#shadow)"/>
+              <path d="M -20 -10 L 20 -10 L 20 10 L -20 10 Z M -20 -10 L 0 5 L 20 -10" 
+                    fill="none" stroke="#0ea5e9" stroke-width="2"/>
+            </g>
+            <line x1="-60" y1="-40" x2="-165" y2="-115" stroke="white" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- Node 2 - Top Right -->
+            <g transform="translate(200, -150)">
+              <circle r="35" fill="white" filter="url(#shadow)"/>
+              <path d="M -20 -10 L 20 -10 L 20 10 L -20 10 Z M -20 -10 L 0 5 L 20 -10" 
+                    fill="none" stroke="#0ea5e9" stroke-width="2"/>
+            </g>
+            <line x1="60" y1="-40" x2="165" y2="-115" stroke="white" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- Node 3 - Bottom Left -->
+            <g transform="translate(-200, 150)">
+              <circle r="35" fill="white" filter="url(#shadow)"/>
+              <path d="M -20 -10 L 20 -10 L 20 10 L -20 10 Z M -20 -10 L 0 5 L 20 -10" 
+                    fill="none" stroke="#22c55e" stroke-width="2"/>
+            </g>
+            <line x1="-60" y1="40" x2="-165" y2="115" stroke="white" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- Node 4 - Bottom Right -->
+            <g transform="translate(200, 150)">
+              <circle r="35" fill="white" filter="url(#shadow)"/>
+              <path d="M -20 -10 L 20 -10 L 20 10 L -20 10 Z M -20 -10 L 0 5 L 20 -10" 
+                    fill="none" stroke="#22c55e" stroke-width="2"/>
+            </g>
+            <line x1="60" y1="40" x2="165" y2="115" stroke="white" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- DNS/Security Icons -->
+            <!-- Shield icon - left -->
+            <g transform="translate(-350, 0)">
+              <path d="M 0 -25 L 20 -15 L 20 15 L 0 25 L -20 15 L -20 -15 Z" 
+                    fill="white" filter="url(#shadow)"/>
+              <path d="M 0 -15 L 12 -8 L 12 8 L 0 15 L -12 8 L -12 -8 Z" 
+                    fill="#22c55e" opacity="0.8"/>
+              <path d="M 0 -5 L 0 5 M -5 0 L 5 0" 
+                    stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            
+            <!-- Lock icon - right -->
+            <g transform="translate(350, 0)">
+              <rect x="-15" y="-5" width="30" height="20" rx="3" fill="white" filter="url(#shadow)"/>
+              <path d="M -8 -5 L -8 -10 A 8 8 0 0 1 8 -10 L 8 -5" 
+                    fill="none" stroke="#0ea5e9" stroke-width="3"/>
+              <circle cx="0" cy="5" r="3" fill="#0ea5e9"/>
+            </g>
+            
+            <!-- Decorative elements -->
+            <!-- Code brackets -->
+            <text x="-450" y="-200" font-family="monospace" font-size="40" fill="white" opacity="0.1">&lt;/&gt;</text>
+            <text x="400" y="-200" font-family="monospace" font-size="40" fill="white" opacity="0.1">{...}</text>
+            <text x="-450" y="230" font-family="monospace" font-size="40" fill="white" opacity="0.1">@</text>
+            <text x="420" y="230" font-family="monospace" font-size="40" fill="white" opacity="0.1">DNS</text>
+          </g>
+          
+          <!-- Title Section -->
+          <g transform="translate(600, 80)">
+            <rect x="-200" y="-30" width="400" height="60" rx="30" fill="white" opacity="0.15"/>
+            <text x="0" y="8" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
+                  fill="white" text-anchor="middle">Email Infrastructure Setup</text>
+          </g>
+          
+          <!-- Leadmark.io branding -->
+          <g transform="translate(1100, 580)">
+            <text font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.8" text-anchor="end">
+              Leadmark.io
+            </text>
+          </g>
+          
+          <!-- Stats/badges at bottom -->
+          <g transform="translate(600, 550)">
+            <g transform="translate(-200, 0)">
+              <rect x="-60" y="-15" width="120" height="30" rx="15" fill="white" opacity="0.2"/>
+              <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">
+                95% Inbox Rate
+              </text>
+            </g>
+            
+            <g transform="translate(0, 0)">
+              <rect x="-60" y="-15" width="120" height="30" rx="15" fill="white" opacity="0.2"/>
+              <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">
+                48hr Setup
+              </text>
+            </g>
+            
+            <g transform="translate(200, 0)">
+              <rect x="-60" y="-15" width="120" height="30" rx="15" fill="white" opacity="0.2"/>
+              <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">
+                500+ Deployed
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+      
       <!-- Table of Contents -->
       <div class="toc">
         <h2>📋 Table of Contents</h2>
