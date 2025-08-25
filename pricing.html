@@ -77,12 +77,24 @@
       --light-gray: #f8fafc;
     }
     
-    body {
+    html, body {min-height:100%;}
+body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
       color: var(--dark);
-      background: #ffffff;
-      overflow-x: hidden;
+      background: radial-gradient(1300px 850px at 100% 80%, rgba(114,167,247,0.95) 0%, rgba(144,185,249,0.85) 35%, rgba(178,207,250,0.70) 60%, rgba(217,229,252,0.30) 78%, rgba(252,252,254,0.00) 90%), radial-gradient(1000px 650px at 0% 70%, rgba(144,185,249,0.55) 0%, rgba(252,252,254,0.00) 70%), linear-gradient(180deg, #ffffff 0%, #fcfcfe 45%, #ffffff 100%); background-attachment: fixed, fixed, fixed; background-repeat: no-repeat;overflow-x: hidden;
+    }
+    
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
     
     html {
@@ -230,7 +242,7 @@
     
     /* Pricing Hero Section */
     .pricing-hero {
-      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      background: transparent;
       padding: 8rem 0 4rem;
       text-align: center;
       position: relative;
@@ -512,7 +524,7 @@
     
     /* Trust Section */
     .trust-indicators {
-      background: var(--light-gray);
+      background: transparent;
       padding: 3rem 0;
       text-align: center;
     }
@@ -544,7 +556,7 @@
     /* Comparison Table */
     .comparison-section {
       padding: 4rem 0;
-      background: white;
+      background: transparent;
     }
     
     .comparison-title {
@@ -632,10 +644,10 @@
       font-style: italic;
     }
     
-    /* Infrastructure Calculator Section */
+    /* Email Calculator Section */
     .calculator-section {
       padding: 4rem 0;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      background: transparent;
     }
     
     .calculator-title {
@@ -657,201 +669,204 @@
     .calculator-container {
       max-width: 800px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .calculator-input-section {
       background: white;
       border-radius: 20px;
       padding: 2rem;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     }
     
-    .calculator-input-section {
-      text-align: center;
-      margin-bottom: 2rem;
+    .calculator-results-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     }
     
-    .calculator-input-group {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
+    .calc-form-group {
       margin-bottom: 1.5rem;
-      flex-wrap: wrap;
     }
     
-    .calculator-input-group label {
+    .calc-form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
       font-weight: 600;
       color: var(--dark);
-      font-size: 1.1rem;
     }
     
-    .calculator-input {
-      width: 150px;
+    .calc-form-group input {
+      width: 100%;
       padding: 0.75rem;
       border: 2px solid #e2e8f0;
       border-radius: 10px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      text-align: center;
-      color: var(--primary);
+      font-size: 1.1rem;
       transition: border-color 0.3s;
     }
     
-    .calculator-input:focus {
+    .calc-form-group input:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
     }
     
-    .calculator-input::-webkit-inner-spin-button,
-    .calculator-input::-webkit-outer-spin-button {
+    .slider-container {
+      margin-top: 1rem;
+    }
+    
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #e2e8f0;
+      outline: none;
       -webkit-appearance: none;
-      margin: 0;
     }
     
-    .calculator-input[type=number] {
-      -moz-appearance: textfield;
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
     }
     
-    .calculator-hint {
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+    }
+    
+    .email-count-display {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-top: 1rem;
+    }
+    
+    .small-text {
+      text-align: center;
       color: var(--gray);
       font-size: 0.9rem;
       margin-top: 0.5rem;
     }
     
-    .calculator-results {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    .calculator-results.active {
-      display: block;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .result-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--light-gray);
-      border-radius: 12px;
-    }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-value {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-    
-    .recommendation-box {
-      background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 16px;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    .recommendation-box h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .recommendation-box .package-name {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    
-    .recommendation-box .package-price {
-      font-size: 1.25rem;
-      opacity: 0.95;
-    }
-    
-    .package-details {
-      background: white;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.5rem;
+    .results-header {
       margin-bottom: 1.5rem;
     }
     
-    .package-details h4 {
+    .results-header h3 {
       color: var(--dark);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
     }
     
-    .package-features {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .package-features li {
+    .result-item {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0;
-      color: #475569;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .result-item:last-child {
+      border-bottom: none;
+    }
+    
+    .result-label {
+      color: var(--gray);
       font-size: 0.95rem;
     }
     
-    .package-features .check {
-      color: var(--secondary);
+    .result-value {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+    
+    .recommendation-box {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .recommendation-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .recommendation-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .recommendation-price {
+      font-size: 2rem;
       font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
     }
     
-    .calculator-cta {
+    .recommendation-details {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .cta-button-calc {
+      display: block;
       text-align: center;
-      margin-top: 2rem;
-    }
-    
-    .calculator-btn {
+      padding: 1rem;
       background: linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e);
       background-size: 200% 200%;
       animation: buttonGradient 10s ease infinite;
       color: white;
-      padding: 1rem 2.5rem;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
-      display: inline-block;
-      transition: all 0.3s;
+      margin-top: 1.5rem;
+      transition: all 0.3s, background 0.5s;
     }
     
-    .calculator-btn:hover {
+    .cta-button-calc:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
     }
     
-    .capacity-note {
+    .info-box {
       background: #fef3c7;
-      border: 1px solid #fcd34d;
-      color: #92400e;
+      border: 1px solid #fbbf24;
+      border-radius: 12px;
       padding: 1rem;
-      border-radius: 10px;
       margin-top: 1.5rem;
+    }
+    
+    .info-box-title {
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .info-box-content {
+      color: #78350f;
       font-size: 0.9rem;
       line-height: 1.5;
     }
@@ -859,7 +874,7 @@
     /* FAQ Section */
     .faq-section {
       padding: 4rem 0;
-      background: var(--light-gray);
+      background: transparent;
     }
     
     .faq-title {
@@ -915,7 +930,7 @@
     /* CTA Section */
     .cta-section {
       padding: 5rem 0;
-      background: linear-gradient(135deg, #0ea5e9, #0891b2);
+      background: transparent;
       text-align: center;
       color: white;
     }
@@ -1070,6 +1085,10 @@
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
       }
+      
+      .calculator-container {
+        grid-template-columns: 1fr;
+      }
     }
     
     @media (max-width: 768px) {
@@ -1113,6 +1132,31 @@
       }
     }
   </style>
+<style>
+/* Contrast fix for CTA section text on gradient background */
+.cta-section, 
+.cta-section h2, 
+.cta-section .section-title, 
+.cta-section p, 
+.cta-section .subtitle, 
+.cta-section .cta-subtitle {
+  color: #0F172A !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+}
+</style>
+<style>
+/* CTA button contrast fix */
+.cta-section .btn-white {
+  background: #F45407 !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+.cta-section .btn-white:hover,
+.cta-section .btn-white:focus {
+  background: #E04C07 !important;
+  color: #FFFFFF !important;
+}
+</style>
 </head>
 <body>
   <!-- Skip to main content -->
@@ -1596,64 +1640,73 @@
       </div>
     </section>
     
-    <!-- Infrastructure Calculator Section -->
+    <!-- Email Infrastructure Calculator -->
     <section class="calculator-section">
       <div class="container">
-        <h2 class="calculator-title">📧 Email Infrastructure Calculator</h2>
-        <p class="calculator-subtitle">Find out exactly how many domains you need and which package is perfect for your email volume</p>
+        <h2 class="calculator-title">Email Infrastructure Calculator</h2>
+        <p class="calculator-subtitle">Find out exactly how many domains and email accounts you need based on your daily sending volume</p>
         
         <div class="calculator-container">
+          <!-- Input Section -->
           <div class="calculator-input-section">
-            <div class="calculator-input-group">
-              <label for="emailsPerDay">How many emails do you want to send per day?</label>
-              <input type="number" id="emailsPerDay" class="calculator-input" placeholder="5000" min="100" max="100000">
+            <div class="results-header">
+              <h3>How many emails do you want to send?</h3>
+              <p style="color: var(--gray); font-size: 0.9rem;">Adjust the slider to set your daily volume</p>
             </div>
-            <p class="calculator-hint">💡 Each domain can safely send up to 100 emails per day with our infrastructure</p>
+            
+            <div class="calc-form-group">
+              <label for="emailVolume">Daily Email Volume</label>
+              <input type="number" id="emailVolumeInput" min="100" max="50000" value="1000" step="100">
+              <div class="slider-container">
+                <input type="range" id="emailVolumeSlider" class="slider" min="100" max="50000" value="1000" step="100">
+              </div>
+            </div>
+            
+            <div class="email-count-display" id="emailCountDisplay">1,000</div>
+            <p class="small-text">emails per day</p>
+            
+            <div class="info-box">
+              <div class="info-box-title">
+                ⚡ Pro Tip
+              </div>
+              <div class="info-box-content">
+                Each domain can safely send up to 100 emails per day using our infrastructure. We use 7 email accounts per domain for optimal deliverability and rotation.
+              </div>
+            </div>
           </div>
           
-          <div class="calculator-results" id="calculatorResults">
-            <div class="result-stats">
-              <div class="stat-item">
-                <div class="stat-value" id="domainsNeeded">50</div>
-                <div class="stat-label">Domains Required</div>
+          <!-- Results Section -->
+          <div class="calculator-results-section">
+            <div class="results-header">
+              <h3>Your Infrastructure Requirements</h3>
+              <p style="color: var(--gray); font-size: 0.9rem;">Based on your daily volume</p>
+            </div>
+            
+            <div class="result-item">
+              <span class="result-label">Domains Needed</span>
+              <span class="result-value" id="domainsNeeded">10</span>
+            </div>
+            
+            <div class="result-item">
+              <span class="result-label">Email Accounts Total</span>
+              <span class="result-value" id="emailAccounts">70</span>
+            </div>
+            
+            <div class="result-item">
+              <span class="result-label">Monthly Email Capacity</span>
+              <span class="result-value" id="monthlyCapacity">30,000</span>
+            </div>
+            
+            <div class="recommendation-box" id="recommendationBox">
+              <span class="recommendation-badge">RECOMMENDED PACKAGE</span>
+              <div class="recommendation-title" id="recommendedPackage">Starter Package</div>
+              <div class="recommendation-price" id="recommendedPrice">$490/year</div>
+              <div class="recommendation-details" id="recommendedDetails">
+                Perfect for your needs! Includes 10 domains, 70 professional inboxes, complete DNS setup, and monthly health reports.
               </div>
-              <div class="stat-item">
-                <div class="stat-value" id="totalInboxes">350</div>
-                <div class="stat-label">Professional Inboxes</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value" id="monthlyReach">150K</div>
-                <div class="stat-label">Monthly Reach</div>
-              </div>
             </div>
             
-            <div class="recommendation-box">
-              <h3>Recommended Package</h3>
-              <div class="package-name" id="recommendedPackage">Enterprise</div>
-              <div class="package-price" id="packagePrice">$2,450+ per year</div>
-            </div>
-            
-            <div class="package-details">
-              <h4>What You'll Get:</h4>
-              <ul class="package-features" id="packageFeatures">
-                <li><span class="check">✓</span> 50+ domains with professional setup</li>
-                <li><span class="check">✓</span> 350+ professional email inboxes</li>
-                <li><span class="check">✓</span> Dedicated server cluster for maximum deliverability</li>
-                <li><span class="check">✓</span> Custom warming schedules</li>
-                <li><span class="check">✓</span> 24/7 priority support</li>
-                <li><span class="check">✓</span> Dedicated account manager</li>
-                <li><span class="check">✓</span> White-label options available</li>
-                <li><span class="check">✓</span> SLA guarantees</li>
-              </ul>
-            </div>
-            
-            <div class="capacity-note">
-              <strong>⚡ Pro Tip:</strong> Our infrastructure includes advanced warming protocols, IP rotation, and reputation monitoring to ensure maximum deliverability. Each domain is properly authenticated with SPF, DKIM, and DMARC to maintain sender reputation.
-            </div>
-            
-            <div class="calculator-cta">
-              <a href="https://calendly.com/izeeshanwaheed/30mins" class="calculator-btn">Get Your Custom Infrastructure →</a>
-            </div>
+            <a href="https://calendly.com/izeeshanwaheed/30mins" class="cta-button-calc" id="packageCTA">Get Started With Starter Package →</a>
           </div>
         </div>
       </div>
@@ -1696,11 +1749,71 @@
           
           <details class="faq-item">
             <summary class="faq-question">
+              Why do I need multiple domains for cold email?
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              Multiple domains protect your main business domain's reputation while allowing you to scale. Each domain can safely send 100 emails/day without triggering spam filters. By spreading your volume across multiple domains, you maintain high deliverability rates and can reach more prospects. If one domain has issues, others continue working, ensuring consistent outreach.
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              What's the difference between email accounts and domains?
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              A domain is your web address (like company.com), while email accounts are individual inboxes (like john@company.com). We set up 7 email accounts per domain for optimal rotation and deliverability. This structure allows each account to send 15-20 emails daily while maintaining a natural sending pattern that email providers trust.
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              How does email warming work?
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              Email warming gradually builds your domain's reputation by slowly increasing sending volume over 2-4 weeks. We start with 5-10 emails per day, then systematically increase while monitoring engagement metrics. Our warming pools simulate real conversations between accounts, building trust with email providers. This process is essential for achieving 95%+ inbox placement rates.
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              What deliverability rates can I expect?
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              With our infrastructure setup, clients typically achieve 95%+ inbox placement rates. This includes proper DNS authentication (SPF, DKIM, DMARC), strategic IP rotation, professional warming protocols, and ongoing reputation monitoring. We continuously optimize your setup to maintain these high deliverability standards across all major email providers.
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
               Can I upgrade my service package later?
               <span class="faq-arrow">▼</span>
             </summary>
             <div class="faq-answer">
               Absolutely! You can upgrade your service package anytime. We'll credit the difference from your current package toward the higher tier. Many clients start with our Foundation service to test our expertise, then upgrade to Accelerator once they see the quality of our work.
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              Do you provide the email domains or do I buy them?
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              You purchase the domains (we recommend Namecheap or GoDaddy at ~$10/year per domain), and we handle everything else. We'll provide a list of recommended domain variations, guide you through the purchase process, and then configure all technical settings. This keeps domain ownership in your control while we manage the infrastructure.
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              What happens if a domain gets blacklisted?
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              With our infrastructure setup, blacklisting is rare. However, if it occurs, we immediately isolate the affected domain, investigate the cause, and implement fixes. Your other domains continue operating normally, ensuring no disruption to your outreach. We also provide replacement domain setup at no extra charge within your support period.
             </div>
           </details>
           
@@ -1740,15 +1853,6 @@
   <!-- Footer - Full version from main site -->
   <footer role="contentinfo">
     <div class="container">
-      <!-- Final CTA Section -->
-      <div style="text-align: center; padding: 2rem 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 2rem;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--dark);">Ready to Generate More Leads?</h3>
-        <p style="color: #64748b; margin-bottom: 1rem;">Get your cold email system set up in 48 hours</p>
-        <a href="https://calendly.com/izeeshanwaheed/30mins" target="_blank" rel="noopener noreferrer" class="btn-primary">
-          Book Your Free Strategy Call →
-        </a>
-      </div>
-      
       <div class="footer-content">
         <div class="footer-section">
           <h3>Quick Links</h3>
@@ -1855,143 +1959,128 @@
       });
     });
     
-    // Infrastructure Calculator
-    const emailsInput = document.getElementById('emailsPerDay');
-    const calculatorResults = document.getElementById('calculatorResults');
+    // Email Infrastructure Calculator
+    const emailVolumeInput = document.getElementById('emailVolumeInput');
+    const emailVolumeSlider = document.getElementById('emailVolumeSlider');
+    const emailCountDisplay = document.getElementById('emailCountDisplay');
     const domainsNeeded = document.getElementById('domainsNeeded');
-    const totalInboxes = document.getElementById('totalInboxes');
-    const monthlyReach = document.getElementById('monthlyReach');
+    const emailAccounts = document.getElementById('emailAccounts');
+    const monthlyCapacity = document.getElementById('monthlyCapacity');
     const recommendedPackage = document.getElementById('recommendedPackage');
-    const packagePrice = document.getElementById('packagePrice');
-    const packageFeatures = document.getElementById('packageFeatures');
+    const recommendedPrice = document.getElementById('recommendedPrice');
+    const recommendedDetails = document.getElementById('recommendedDetails');
+    const recommendationBox = document.getElementById('recommendationBox');
+    const packageCTA = document.getElementById('packageCTA');
     
     // Package definitions
     const packages = {
       starter: {
-        name: 'Starter',
+        name: 'Starter Package',
         domains: 10,
-        inboxes: 70,
-        price: '$490 per year',
-        features: [
-          '10 domains with professional setup',
-          '70 professional email inboxes',
-          'Complete DMARC/SPF/DKIM authentication',
-          'IP rotation included',
-          '14-day warming protocol',
-          'Platform integration (Instantly/Smartlead)',
-          'Email support',
-          'Monthly health reports'
-        ]
+        price: '$490/year',
+        details: 'Perfect for your needs! Includes 10 domains, 70 professional inboxes, complete DNS setup, and monthly health reports.',
+        cta: 'Get Started with Starter Package →',
+        link: 'https://calendly.com/izeeshanwaheed/30mins'
       },
       professional: {
-        name: 'Professional',
+        name: 'Professional Package',
         domains: 25,
-        inboxes: 175,
-        price: '$1,225 per year',
-        features: [
-          '25 domains with professional setup',
-          '175 professional email inboxes',
-          'Priority server allocation',
-          'Advanced IP management',
-          'Reputation monitoring dashboard',
-          'Slack support channel',
-          'Weekly optimization calls',
-          'Deliverability consulting'
-        ]
+        price: '$1,225/year',
+        details: 'Scale your outreach! Includes 25 domains, 175 professional inboxes, priority server allocation, reputation monitoring, and weekly optimization calls.',
+        cta: 'Get Started with Professional Package →',
+        link: 'https://calendly.com/izeeshanwaheed/30mins'
       },
       enterprise: {
-        name: 'Enterprise',
+        name: 'Enterprise Package',
         domains: 50,
-        inboxes: 350,
-        price: '$2,450+ per year',
-        features: [
-          '50+ domains scalable to your needs',
-          '350+ professional email inboxes',
-          'Dedicated server cluster',
-          'Custom warming schedules',
-          '24/7 priority support',
-          'Dedicated account manager',
-          'White-label options available',
-          'SLA guarantees'
-        ]
+        price: '$2,450+/year',
+        details: 'Unlimited scaling! 50+ domains, 350+ inboxes, dedicated server cluster, white-label options, and 24/7 priority support with dedicated account manager.',
+        cta: 'Get Started with Enterprise Package →',
+        link: 'https://calendly.com/izeeshanwaheed/30mins'
+      },
+      custom: {
+        name: 'Custom Enterprise Solution',
+        domains: 100,
+        price: 'Contact Sales',
+        details: 'Need more than 50 domains? We\'ll create a custom infrastructure solution tailored to your exact needs with enterprise SLA guarantees.',
+        cta: 'Contact Sales for Custom Solution →',
+        link: 'https://calendly.com/izeeshanwaheed/30mins'
       }
     };
     
-    function calculateInfrastructure() {
-      const dailyEmails = parseInt(emailsInput.value) || 0;
-      
-      if (dailyEmails < 100) {
-        calculatorResults.classList.remove('active');
-        return;
-      }
-      
-      // Calculate requirements (1 domain = 100 emails/day, 1 domain = 7 inboxes)
-      const domains = Math.ceil(dailyEmails / 100);
-      const inboxes = domains * 7;
-      const monthly = dailyEmails * 30;
-      
-      // Determine package
-      let selectedPackage;
-      if (domains <= 10) {
-        selectedPackage = packages.starter;
-      } else if (domains <= 25) {
-        selectedPackage = packages.professional;
-      } else {
-        selectedPackage = packages.enterprise;
-      }
+    function updateCalculator() {
+      const emailVolume = parseInt(emailVolumeInput.value);
       
       // Update display
-      domainsNeeded.textContent = domains;
-      totalInboxes.textContent = inboxes.toLocaleString();
+      emailCountDisplay.textContent = emailVolume.toLocaleString();
       
-      // Format monthly reach
-      if (monthly >= 1000000) {
-        monthlyReach.textContent = (monthly / 1000000).toFixed(1) + 'M';
-      } else if (monthly >= 1000) {
-        monthlyReach.textContent = (monthly / 1000).toFixed(0) + 'K';
+      // Calculate requirements (1 domain = 100 emails/day)
+      const domainsRequired = Math.ceil(emailVolume / 100);
+      const accountsRequired = domainsRequired * 7;
+      const monthlyEmails = emailVolume * 30;
+      
+      // Update results
+      domainsNeeded.textContent = domainsRequired.toLocaleString();
+      emailAccounts.textContent = accountsRequired.toLocaleString();
+      monthlyCapacity.textContent = monthlyEmails.toLocaleString();
+      
+      // Determine recommended package
+      let recommendedPkg;
+      if (domainsRequired <= 10) {
+        recommendedPkg = packages.starter;
+      } else if (domainsRequired <= 25) {
+        recommendedPkg = packages.professional;
+      } else if (domainsRequired <= 50) {
+        recommendedPkg = packages.enterprise;
       } else {
-        monthlyReach.textContent = monthly.toLocaleString();
+        recommendedPkg = packages.custom;
       }
       
-      recommendedPackage.textContent = selectedPackage.name;
+      // Update recommendation
+      recommendedPackage.textContent = recommendedPkg.name;
+      recommendedPrice.textContent = recommendedPkg.price;
+      recommendedDetails.textContent = recommendedPkg.details;
       
-      // Adjust price for enterprise if needed
-      if (domains > 50) {
-        const additionalDomains = domains - 50;
-        const additionalCost = Math.ceil(additionalDomains / 10) * 490; // $490 per 10 domains
-        packagePrice.textContent = `${(2450 + additionalCost).toLocaleString()} per year (${domains} domains)`;
+      // Update CTA button
+      packageCTA.textContent = recommendedPkg.cta;
+      packageCTA.href = recommendedPkg.link;
+      
+      // Adjust font size for longer CTAs
+      if (recommendedPkg.name.includes('Custom')) {
+        packageCTA.style.fontSize = '0.95rem';
       } else {
-        packagePrice.textContent = selectedPackage.price;
+        packageCTA.style.fontSize = '1rem';
       }
       
-      // Update features
-      packageFeatures.innerHTML = selectedPackage.features
-        .map(feature => `<li><span class="check">✓</span> ${feature}</li>`)
-        .join('');
-      
-      // If enterprise and needs more than 50 domains, update the first feature
-      if (domains > 50) {
-        const firstFeature = packageFeatures.querySelector('li:first-child');
-        firstFeature.innerHTML = `<span class="check">✓</span> ${domains} domains with professional setup`;
-        const secondFeature = packageFeatures.querySelector('li:nth-child(2)');
-        secondFeature.innerHTML = `<span class="check">✓</span> ${inboxes.toLocaleString()} professional email inboxes`;
+      // Update recommendation box color based on package
+      if (recommendedPkg.name.includes('Custom')) {
+        recommendationBox.style.background = 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)';
+        packageCTA.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+      } else if (recommendedPkg.name.includes('Enterprise')) {
+        recommendationBox.style.background = 'linear-gradient(135deg, #ddd6fe 0%, #e9d5ff 100%)';
+        packageCTA.style.background = 'linear-gradient(135deg, #9333ea, #7c3aed)';
+      } else if (recommendedPkg.name.includes('Professional')) {
+        recommendationBox.style.background = 'linear-gradient(135deg, #bfdbfe 0%, #dbeafe 100%)';
+        packageCTA.style.background = 'linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e)';
+      } else {
+        recommendationBox.style.background = 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)';
+        packageCTA.style.background = 'linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e)';
       }
-      
-      // Show results
-      calculatorResults.classList.add('active');
     }
     
-    // Add input event listener with debouncing
-    let calculatorTimeout;
-    emailsInput.addEventListener('input', () => {
-      clearTimeout(calculatorTimeout);
-      calculatorTimeout = setTimeout(calculateInfrastructure, 300);
+    // Sync input and slider
+    emailVolumeInput.addEventListener('input', () => {
+      emailVolumeSlider.value = emailVolumeInput.value;
+      updateCalculator();
     });
     
-    // Calculate on page load if there's a value
-    if (emailsInput.value) {
-      calculateInfrastructure();
-    }
+    emailVolumeSlider.addEventListener('input', () => {
+      emailVolumeInput.value = emailVolumeSlider.value;
+      updateCalculator();
+    });
+    
+    // Initialize calculator
+    updateCalculator();
     
     // Mobile menu toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
