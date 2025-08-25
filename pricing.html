@@ -501,6 +501,15 @@
       display: block;
     }
     
+    /* Service Comparison Tables */
+    .service-comparison {
+      display: none;
+    }
+    
+    .service-comparison.active {
+      display: block;
+    }
+    
     /* Trust Section */
     .trust-indicators {
       background: var(--light-gray);
@@ -621,6 +630,230 @@
       font-size: 0.85rem;
       margin-top: 1rem;
       font-style: italic;
+    }
+    
+    /* Infrastructure Calculator Section */
+    .calculator-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    }
+    
+    .calculator-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .calculator-subtitle {
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .calculator-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .calculator-input-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .calculator-input-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .calculator-input-group label {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+    
+    .calculator-input {
+      width: 150px;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--primary);
+      transition: border-color 0.3s;
+    }
+    
+    .calculator-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    }
+    
+    .calculator-input::-webkit-inner-spin-button,
+    .calculator-input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    .calculator-input[type=number] {
+      -moz-appearance: textfield;
+    }
+    
+    .calculator-hint {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    
+    .calculator-results {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .calculator-results.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .result-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    
+    .recommendation-box {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .recommendation-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .recommendation-box .package-name {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .recommendation-box .package-price {
+      font-size: 1.25rem;
+      opacity: 0.95;
+    }
+    
+    .package-details {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .package-details h4 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .package-features {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .package-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+    
+    .package-features .check {
+      color: var(--secondary);
+      font-weight: bold;
+    }
+    
+    .calculator-cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .calculator-btn {
+      background: linear-gradient(135deg, #0ea5e9, #0891b2, #22c55e);
+      background-size: 200% 200%;
+      animation: buttonGradient 10s ease infinite;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    
+    .calculator-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+    }
+    
+    .capacity-note {
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
+      color: #92400e;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
     
     /* FAQ Section */
@@ -951,13 +1184,13 @@
                 <p class="price-period">one-time setup</p>
               </div>
               <ul class="pricing-features">
-                <li><span class="check">✓</span> 5 email accounts configuration</li>
-                <li><span class="check">✓</span> Basic platform setup (Instantly/Smartlead)</li>
-                <li><span class="check">✓</span> Email warming activation</li>
-                <li><span class="check">✓</span> 1 campaign template</li>
-                <li><span class="check">✓</span> Basic authentication (SPF/DKIM)</li>
-                <li><span class="check">✓</span> 3-day email support</li>
-                <li><span class="check">✓</span> Setup guide documentation</li>
+                <li><span class="check">✔</span> 5 email accounts configuration</li>
+                <li><span class="check">✔</span> Basic platform setup (Instantly/Smartlead)</li>
+                <li><span class="check">✔</span> Email warming activation</li>
+                <li><span class="check">✔</span> 1 campaign template</li>
+                <li><span class="check">✔</span> Basic authentication (SPF/DKIM)</li>
+                <li><span class="check">✔</span> 3-day email support</li>
+                <li><span class="check">✔</span> Setup guide documentation</li>
               </ul>
               <a href="https://calendly.com/izeeshanwaheed/30mins" class="pricing-cta">Get Started</a>
             </div>
@@ -976,16 +1209,16 @@
                 <p class="price-period">one-time setup</p>
               </div>
               <ul class="pricing-features">
-                <li><span class="check">✓</span> Everything in Foundation PLUS:</li>
-                <li><span class="check">✓</span> 15 email accounts configuration</li>
-                <li><span class="check">✓</span> Advanced warming strategy</li>
-                <li><span class="check">✓</span> 3 complete campaign sequences</li>
-                <li><span class="check">✓</span> Custom email templates (10)</li>
-                <li><span class="check">✓</span> Full DMARC implementation</li>
-                <li><span class="check">✓</span> Lead list cleaning (5,000)</li>
-                <li><span class="check">✓</span> 30-day optimization support</li>
-                <li><span class="check">✓</span> Zoom training session</li>
-                <li><span class="check">✓</span> Weekly check-ins</li>
+                <li><span class="check">✔</span> Everything in Foundation PLUS:</li>
+                <li><span class="check">✔</span> 15 email accounts configuration</li>
+                <li><span class="check">✔</span> Advanced warming strategy</li>
+                <li><span class="check">✔</span> 3 complete campaign sequences</li>
+                <li><span class="check">✔</span> Custom email templates (10)</li>
+                <li><span class="check">✔</span> Full DMARC implementation</li>
+                <li><span class="check">✔</span> Lead list cleaning (5,000)</li>
+                <li><span class="check">✔</span> 30-day optimization support</li>
+                <li><span class="check">✔</span> Zoom training session</li>
+                <li><span class="check">✔</span> Weekly check-ins</li>
               </ul>
               <a href="https://calendly.com/izeeshanwaheed/30mins" class="pricing-cta">Get Started</a>
             </div>
@@ -1003,17 +1236,17 @@
                 <p class="price-period">one-time setup</p>
               </div>
               <ul class="pricing-features">
-                <li><span class="check">✓</span> Unlimited email accounts</li>
-                <li><span class="check">✓</span> Multiple domain setup</li>
-                <li><span class="check">✓</span> 10 campaign sequences</li>
-                <li><span class="check">✓</span> AI personalization setup</li>
-                <li><span class="check">✓</span> Lead database integration</li>
-                <li><span class="check">✓</span> CRM synchronization</li>
-                <li><span class="check">✓</span> Weekly optimization calls</li>
-                <li><span class="check">✓</span> 90-day partnership support</li>
-                <li><span class="check">✓</span> Team training included</li>
-                <li><span class="check">✓</span> Priority support channel</li>
-                <li><span class="check">✓</span> Custom integrations</li>
+                <li><span class="check">✔</span> Unlimited email accounts</li>
+                <li><span class="check">✔</span> Multiple domain setup</li>
+                <li><span class="check">✔</span> 10 campaign sequences</li>
+                <li><span class="check">✔</span> AI personalization setup</li>
+                <li><span class="check">✔</span> Lead database integration</li>
+                <li><span class="check">✔</span> CRM synchronization</li>
+                <li><span class="check">✔</span> Weekly optimization calls</li>
+                <li><span class="check">✔</span> 90-day partnership support</li>
+                <li><span class="check">✔</span> Team training included</li>
+                <li><span class="check">✔</span> Priority support channel</li>
+                <li><span class="check">✔</span> Custom integrations</li>
               </ul>
               <a href="https://calendly.com/izeeshanwaheed/30mins" class="pricing-cta">Get Started</a>
             </div>
@@ -1036,14 +1269,14 @@
                 <p class="price-period">per year (10 domains)</p>
               </div>
               <ul class="pricing-features">
-                <li><span class="check">✓</span> 10 domains minimum</li>
-                <li><span class="check">✓</span> 70 professional inboxes total</li>
-                <li><span class="check">✓</span> Complete DMARC/SPF/DKIM</li>
-                <li><span class="check">✓</span> IP rotation included</li>
-                <li><span class="check">✓</span> 14-day warming protocol</li>
-                <li><span class="check">✓</span> Platform integration</li>
-                <li><span class="check">✓</span> Email support</li>
-                <li><span class="check">✓</span> Monthly health reports</li>
+                <li><span class="check">✔</span> 10 domains minimum</li>
+                <li><span class="check">✔</span> 70 professional inboxes total</li>
+                <li><span class="check">✔</span> Complete DMARC/SPF/DKIM</li>
+                <li><span class="check">✔</span> IP rotation included</li>
+                <li><span class="check">✔</span> 14-day warming protocol</li>
+                <li><span class="check">✔</span> Platform integration</li>
+                <li><span class="check">✔</span> Email support</li>
+                <li><span class="check">✔</span> Monthly health reports</li>
               </ul>
               <a href="https://calendly.com/izeeshanwaheed/30mins" class="pricing-cta">Get Started</a>
             </div>
@@ -1062,15 +1295,15 @@
                 <p class="price-period">per year (25 domains)</p>
               </div>
               <ul class="pricing-features">
-                <li><span class="check">✓</span> Everything in Starter PLUS:</li>
-                <li><span class="check">✓</span> 25 domains included</li>
-                <li><span class="check">✓</span> 175 professional inboxes total</li>
-                <li><span class="check">✓</span> Priority server allocation</li>
-                <li><span class="check">✓</span> Advanced IP management</li>
-                <li><span class="check">✓</span> Reputation monitoring dashboard</li>
-                <li><span class="check">✓</span> Slack support channel</li>
-                <li><span class="check">✓</span> Weekly optimization calls</li>
-                <li><span class="check">✓</span> Deliverability consulting</li>
+                <li><span class="check">✔</span> Everything in Starter PLUS:</li>
+                <li><span class="check">✔</span> 25 domains included</li>
+                <li><span class="check">✔</span> 175 professional inboxes total</li>
+                <li><span class="check">✔</span> Priority server allocation</li>
+                <li><span class="check">✔</span> Advanced IP management</li>
+                <li><span class="check">✔</span> Reputation monitoring dashboard</li>
+                <li><span class="check">✔</span> Slack support channel</li>
+                <li><span class="check">✔</span> Weekly optimization calls</li>
+                <li><span class="check">✔</span> Deliverability consulting</li>
               </ul>
               <a href="https://calendly.com/izeeshanwaheed/30mins" class="pricing-cta">Get Started</a>
             </div>
@@ -1088,15 +1321,15 @@
                 <p class="price-period">per year (50+ domains)</p>
               </div>
               <ul class="pricing-features">
-                <li><span class="check">✓</span> 50+ domains scalable</li>
-                <li><span class="check">✓</span> 350+ professional inboxes</li>
-                <li><span class="check">✓</span> Dedicated server cluster</li>
-                <li><span class="check">✓</span> Custom warming schedules</li>
-                <li><span class="check">✓</span> White-label options available</li>
-                <li><span class="check">✓</span> 24/7 priority support</li>
-                <li><span class="check">✓</span> Dedicated account manager</li>
-                <li><span class="check">✓</span> Custom integrations</li>
-                <li><span class="check">✓</span> SLA guarantees</li>
+                <li><span class="check">✔</span> 50+ domains scalable</li>
+                <li><span class="check">✔</span> 350+ professional inboxes</li>
+                <li><span class="check">✔</span> Dedicated server cluster</li>
+                <li><span class="check">✔</span> Custom warming schedules</li>
+                <li><span class="check">✔</span> White-label options available</li>
+                <li><span class="check">✔</span> 24/7 priority support</li>
+                <li><span class="check">✔</span> Dedicated account manager</li>
+                <li><span class="check">✔</span> Custom integrations</li>
+                <li><span class="check">✔</span> SLA guarantees</li>
               </ul>
               <a href="https://calendly.com/izeeshanwaheed/30mins" class="pricing-cta">Contact Sales</a>
             </div>
@@ -1133,7 +1366,9 @@
     <section class="comparison-section">
       <div class="container">
         <h2 class="comparison-title">Compare Our Service Packages</h2>
-        <div class="comparison-table-wrapper">
+        
+        <!-- Campaign Setup Comparison Table -->
+        <div id="campaignComparison" class="comparison-table-wrapper service-comparison active">
           <div class="comparison-table">
             <table>
               <thead>
@@ -1189,14 +1424,14 @@
                 </tr>
                 <tr>
                   <td>A/B Testing</td>
-                  <td><span class="x-mark">–</span></td>
+                  <td><span class="x-mark">—</span></td>
                   <td><span class="check-mark">✓</span></td>
                   <td><span class="check-mark">✓</span></td>
                 </tr>
                 <tr>
                   <td>AI Personalization</td>
-                  <td><span class="x-mark">–</span></td>
-                  <td><span class="x-mark">–</span></td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="x-mark">—</span></td>
                   <td><span class="check-mark">✓</span></td>
                 </tr>
                 <tr class="feature-category">
@@ -1230,6 +1465,196 @@
             </table>
           </div>
           <p class="table-scroll-hint">← Swipe to see all features →</p>
+        </div>
+        
+        <!-- Email Infrastructure Comparison Table -->
+        <div id="infrastructureComparison" class="comparison-table-wrapper service-comparison">
+          <div class="comparison-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Infrastructure Features</th>
+                  <th>Starter</th>
+                  <th>Professional</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="feature-category">
+                  <td colspan="4">Domain & Email Infrastructure</td>
+                </tr>
+                <tr>
+                  <td>Number of Domains</td>
+                  <td>10 domains</td>
+                  <td>25 domains</td>
+                  <td>50+ domains</td>
+                </tr>
+                <tr>
+                  <td>Professional Inboxes</td>
+                  <td>70 total</td>
+                  <td>175 total</td>
+                  <td>350+ total</td>
+                </tr>
+                <tr>
+                  <td>DNS Authentication</td>
+                  <td><span class="check-mark">✓</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                </tr>
+                <tr>
+                  <td>DMARC/SPF/DKIM Setup</td>
+                  <td><span class="check-mark">✓</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                </tr>
+                <tr class="feature-category">
+                  <td colspan="4">Server & IP Management</td>
+                </tr>
+                <tr>
+                  <td>IP Rotation</td>
+                  <td>Standard</td>
+                  <td>Advanced</td>
+                  <td>Custom</td>
+                </tr>
+                <tr>
+                  <td>Server Allocation</td>
+                  <td>Shared</td>
+                  <td>Priority</td>
+                  <td>Dedicated Cluster</td>
+                </tr>
+                <tr>
+                  <td>Warming Protocol</td>
+                  <td>14-day</td>
+                  <td>Custom</td>
+                  <td>Custom</td>
+                </tr>
+                <tr>
+                  <td>IP Management</td>
+                  <td>Basic</td>
+                  <td>Advanced</td>
+                  <td>Enterprise</td>
+                </tr>
+                <tr class="feature-category">
+                  <td colspan="4">Monitoring & Support</td>
+                </tr>
+                <tr>
+                  <td>Health Reports</td>
+                  <td>Monthly</td>
+                  <td>Weekly</td>
+                  <td>Real-time</td>
+                </tr>
+                <tr>
+                  <td>Reputation Monitoring</td>
+                  <td><span class="x-mark">—</span></td>
+                  <td>Dashboard</td>
+                  <td>Advanced Analytics</td>
+                </tr>
+                <tr>
+                  <td>Support Channel</td>
+                  <td>Email</td>
+                  <td>Slack</td>
+                  <td>24/7 Priority</td>
+                </tr>
+                <tr>
+                  <td>Account Management</td>
+                  <td><span class="x-mark">—</span></td>
+                  <td>Weekly Calls</td>
+                  <td>Dedicated Manager</td>
+                </tr>
+                <tr class="feature-category">
+                  <td colspan="4">Additional Features</td>
+                </tr>
+                <tr>
+                  <td>Platform Integration</td>
+                  <td><span class="check-mark">✓</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                </tr>
+                <tr>
+                  <td>White-Label Options</td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                </tr>
+                <tr>
+                  <td>Custom Integrations</td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                </tr>
+                <tr>
+                  <td>SLA Guarantees</td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="x-mark">—</span></td>
+                  <td><span class="check-mark">✓</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-scroll-hint">← Swipe to see all features →</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Infrastructure Calculator Section -->
+    <section class="calculator-section">
+      <div class="container">
+        <h2 class="calculator-title">📧 Email Infrastructure Calculator</h2>
+        <p class="calculator-subtitle">Find out exactly how many domains you need and which package is perfect for your email volume</p>
+        
+        <div class="calculator-container">
+          <div class="calculator-input-section">
+            <div class="calculator-input-group">
+              <label for="emailsPerDay">How many emails do you want to send per day?</label>
+              <input type="number" id="emailsPerDay" class="calculator-input" placeholder="5000" min="100" max="100000">
+            </div>
+            <p class="calculator-hint">💡 Each domain can safely send up to 100 emails per day with our infrastructure</p>
+          </div>
+          
+          <div class="calculator-results" id="calculatorResults">
+            <div class="result-stats">
+              <div class="stat-item">
+                <div class="stat-value" id="domainsNeeded">50</div>
+                <div class="stat-label">Domains Required</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="totalInboxes">350</div>
+                <div class="stat-label">Professional Inboxes</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="monthlyReach">150K</div>
+                <div class="stat-label">Monthly Reach</div>
+              </div>
+            </div>
+            
+            <div class="recommendation-box">
+              <h3>Recommended Package</h3>
+              <div class="package-name" id="recommendedPackage">Enterprise</div>
+              <div class="package-price" id="packagePrice">$2,450+ per year</div>
+            </div>
+            
+            <div class="package-details">
+              <h4>What You'll Get:</h4>
+              <ul class="package-features" id="packageFeatures">
+                <li><span class="check">✓</span> 50+ domains with professional setup</li>
+                <li><span class="check">✓</span> 350+ professional email inboxes</li>
+                <li><span class="check">✓</span> Dedicated server cluster for maximum deliverability</li>
+                <li><span class="check">✓</span> Custom warming schedules</li>
+                <li><span class="check">✓</span> 24/7 priority support</li>
+                <li><span class="check">✓</span> Dedicated account manager</li>
+                <li><span class="check">✓</span> White-label options available</li>
+                <li><span class="check">✓</span> SLA guarantees</li>
+              </ul>
+            </div>
+            
+            <div class="capacity-note">
+              <strong>⚡ Pro Tip:</strong> Our infrastructure includes advanced warming protocols, IP rotation, and reputation monitoring to ensure maximum deliverability. Each domain is properly authenticated with SPF, DKIM, and DMARC to maintain sender reputation.
+            </div>
+            
+            <div class="calculator-cta">
+              <a href="https://calendly.com/izeeshanwaheed/30mins" class="calculator-btn">Get Your Custom Infrastructure →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1405,6 +1830,8 @@
     const serviceBtns = document.querySelectorAll('.service-toggle-btn');
     const campaignPricing = document.getElementById('campaignPricing');
     const infrastructurePricing = document.getElementById('infrastructurePricing');
+    const campaignComparison = document.getElementById('campaignComparison');
+    const infrastructureComparison = document.getElementById('infrastructureComparison');
     
     serviceBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1413,16 +1840,158 @@
         // Add active class to clicked button
         btn.classList.add('active');
         
-        // Show/hide content
+        // Show/hide pricing content and comparison tables
         if (btn.dataset.service === 'campaign') {
           campaignPricing.classList.add('active');
           infrastructurePricing.classList.remove('active');
+          campaignComparison.classList.add('active');
+          infrastructureComparison.classList.remove('active');
         } else {
           campaignPricing.classList.remove('active');
           infrastructurePricing.classList.add('active');
+          campaignComparison.classList.remove('active');
+          infrastructureComparison.classList.add('active');
         }
       });
     });
+    
+    // Infrastructure Calculator
+    const emailsInput = document.getElementById('emailsPerDay');
+    const calculatorResults = document.getElementById('calculatorResults');
+    const domainsNeeded = document.getElementById('domainsNeeded');
+    const totalInboxes = document.getElementById('totalInboxes');
+    const monthlyReach = document.getElementById('monthlyReach');
+    const recommendedPackage = document.getElementById('recommendedPackage');
+    const packagePrice = document.getElementById('packagePrice');
+    const packageFeatures = document.getElementById('packageFeatures');
+    
+    // Package definitions
+    const packages = {
+      starter: {
+        name: 'Starter',
+        domains: 10,
+        inboxes: 70,
+        price: '$490 per year',
+        features: [
+          '10 domains with professional setup',
+          '70 professional email inboxes',
+          'Complete DMARC/SPF/DKIM authentication',
+          'IP rotation included',
+          '14-day warming protocol',
+          'Platform integration (Instantly/Smartlead)',
+          'Email support',
+          'Monthly health reports'
+        ]
+      },
+      professional: {
+        name: 'Professional',
+        domains: 25,
+        inboxes: 175,
+        price: '$1,225 per year',
+        features: [
+          '25 domains with professional setup',
+          '175 professional email inboxes',
+          'Priority server allocation',
+          'Advanced IP management',
+          'Reputation monitoring dashboard',
+          'Slack support channel',
+          'Weekly optimization calls',
+          'Deliverability consulting'
+        ]
+      },
+      enterprise: {
+        name: 'Enterprise',
+        domains: 50,
+        inboxes: 350,
+        price: '$2,450+ per year',
+        features: [
+          '50+ domains scalable to your needs',
+          '350+ professional email inboxes',
+          'Dedicated server cluster',
+          'Custom warming schedules',
+          '24/7 priority support',
+          'Dedicated account manager',
+          'White-label options available',
+          'SLA guarantees'
+        ]
+      }
+    };
+    
+    function calculateInfrastructure() {
+      const dailyEmails = parseInt(emailsInput.value) || 0;
+      
+      if (dailyEmails < 100) {
+        calculatorResults.classList.remove('active');
+        return;
+      }
+      
+      // Calculate requirements (1 domain = 100 emails/day, 1 domain = 7 inboxes)
+      const domains = Math.ceil(dailyEmails / 100);
+      const inboxes = domains * 7;
+      const monthly = dailyEmails * 30;
+      
+      // Determine package
+      let selectedPackage;
+      if (domains <= 10) {
+        selectedPackage = packages.starter;
+      } else if (domains <= 25) {
+        selectedPackage = packages.professional;
+      } else {
+        selectedPackage = packages.enterprise;
+      }
+      
+      // Update display
+      domainsNeeded.textContent = domains;
+      totalInboxes.textContent = inboxes.toLocaleString();
+      
+      // Format monthly reach
+      if (monthly >= 1000000) {
+        monthlyReach.textContent = (monthly / 1000000).toFixed(1) + 'M';
+      } else if (monthly >= 1000) {
+        monthlyReach.textContent = (monthly / 1000).toFixed(0) + 'K';
+      } else {
+        monthlyReach.textContent = monthly.toLocaleString();
+      }
+      
+      recommendedPackage.textContent = selectedPackage.name;
+      
+      // Adjust price for enterprise if needed
+      if (domains > 50) {
+        const additionalDomains = domains - 50;
+        const additionalCost = Math.ceil(additionalDomains / 10) * 490; // $490 per 10 domains
+        packagePrice.textContent = `${(2450 + additionalCost).toLocaleString()} per year (${domains} domains)`;
+      } else {
+        packagePrice.textContent = selectedPackage.price;
+      }
+      
+      // Update features
+      packageFeatures.innerHTML = selectedPackage.features
+        .map(feature => `<li><span class="check">✓</span> ${feature}</li>`)
+        .join('');
+      
+      // If enterprise and needs more than 50 domains, update the first feature
+      if (domains > 50) {
+        const firstFeature = packageFeatures.querySelector('li:first-child');
+        firstFeature.innerHTML = `<span class="check">✓</span> ${domains} domains with professional setup`;
+        const secondFeature = packageFeatures.querySelector('li:nth-child(2)');
+        secondFeature.innerHTML = `<span class="check">✓</span> ${inboxes.toLocaleString()} professional email inboxes`;
+      }
+      
+      // Show results
+      calculatorResults.classList.add('active');
+    }
+    
+    // Add input event listener with debouncing
+    let calculatorTimeout;
+    emailsInput.addEventListener('input', () => {
+      clearTimeout(calculatorTimeout);
+      calculatorTimeout = setTimeout(calculateInfrastructure, 300);
+    });
+    
+    // Calculate on page load if there's a value
+    if (emailsInput.value) {
+      calculateInfrastructure();
+    }
     
     // Mobile menu toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
